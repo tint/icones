@@ -157,6 +157,21 @@ function exportTargets(value: unknown): string[] {
 
 async function validatePackage(directory: string, manifest: JsonObject) {
   const serialized = JSON.stringify(manifest)
+  if (typeof manifest.license !== "string" || !manifest.license)
+    throw new Error(`${manifest.name}: missing license metadata`)
+  if (
+    manifest.license === "MIT" &&
+    !(await exists(path.join(directory, "LICENSE")))
+  )
+    throw new Error(`${manifest.name}: missing MIT license file`)
+  const referencedLicense = /^SEE LICENSE IN (.+)$/.exec(manifest.license)?.[1]
+  if (
+    referencedLicense &&
+    !(await exists(path.resolve(directory, referencedLicense)))
+  )
+    throw new Error(
+      `${manifest.name}: missing referenced license file ${referencedLicense}`
+    )
   if (serialized.includes("workspace:"))
     throw new Error(`${manifest.name}: workspace dependency remains in release`)
   if (
@@ -314,6 +329,8 @@ export async function buildRelease({
             recursive: true,
           }
         )
+      if (source.manifest.license === "MIT")
+        await cp(path.join(root, "LICENSE"), path.join(directory, "LICENSE"))
       const manifest = createReleaseManifest(
         source.manifest,
         source.version,

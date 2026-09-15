@@ -1,6 +1,7 @@
 {
   "name": "@icones/icons",
   "version": "0.0.1",
+  "license": "SEE LICENSE IN README.md",
   "type": "module",
   "sideEffects": false,
   "description": "Icon collection artwork, manifests and original licenses.",

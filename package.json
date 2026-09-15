@@ -1,6 +1,7 @@
 {
   "name": "icones-monorepo",
   "version": "0.0.0",
+  "license": "MIT",
   "private": true,
   "type": "module",
   "homepage": "https://icones.go-slim.dev",

@@ -1,6 +1,7 @@
 {
   "name": "@icones/names",
   "version": "0.0.1",
+  "license": "MIT",
   "type": "module",
   "sideEffects": false,
   "description": "Generated Icones icon name types, without artwork or runtime dependencies.",

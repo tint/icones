@@ -11,7 +11,7 @@
 - 默认保留每个源码包自己的 `version`；传入 `--version <semver>` 时统一覆盖所有公开包。
 - 将 `workspace:*` 改为被依赖包的目标版本。例如 Astro 依赖 Core 时，使用 Core 的发布版本，而不是 Astro 自身版本。
 - 移除 `development` / `bun` 源码条件、`src` sideEffects、scripts、devDependencies 和 files 白名单。
-- 仅复制运行文件、类型声明、包 README 和必要的附加文档。
+- 仅复制运行文件、类型声明、包 README 和必要的附加文档；MIT 软件包同时复制仓库根 `LICENSE`。
 - 检查发布清单中没有 `workspace:` 或源码路径，并验证所有非通配 exports、bin 和 types 文件存在。
 - 再次对照源码依赖与目标版本；不一致时在生成 tarball 或上传前失败。
 

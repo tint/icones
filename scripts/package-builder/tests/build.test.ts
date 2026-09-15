@@ -6,6 +6,7 @@ test("release manifests contain only final outputs and registry dependency range
     {
       name: "@icones/example",
       version: "0.0.0",
+      license: "MIT",
       private: false,
       files: ["src", "dist"],
       sideEffects: ["./src/register.ts", "./dist/register.js"],
@@ -40,6 +41,7 @@ test("release manifests contain only final outputs and registry dependency range
     external: "^1.0.0",
   })
   expect(manifest.publishConfig).toEqual({ access: "public" })
+  expect(manifest.license).toBe("MIT")
   expect(manifest.sideEffects).toEqual(["./dist/register.js"])
   expect(JSON.stringify(manifest)).not.toContain("workspace:")
 })

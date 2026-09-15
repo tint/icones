@@ -1,6 +1,7 @@
 {
   "name": "@icones/mcp-server",
   "version": "0.0.1",
+  "license": "MIT",
   "description": "Read-only stdio MCP tools for local icons and bundled framework guides.",
   "type": "module",
   "sideEffects": false,

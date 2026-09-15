@@ -1,6 +1,7 @@
 {
   "name": "@icones/react",
   "version": "0.0.1",
+  "license": "MIT",
   "type": "module",
   "sideEffects": false,
   "homepage": "https://icones.go-slim.dev",
