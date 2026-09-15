@@ -1,19 +1,30 @@
 # @icones/vite
 
-构建转换与资源生产预设可通过独立的 [tooling 入口](./TOOLING.md) 复用；它不会初始化 Vite 插件。
-
 收集 React、Vue、Svelte、SolidJS、Astro 组件和 vanilla API 中字面量名称的 Vite 8 插件，支持 SVG 内联和独立 symbol 输出。
 
+```sh
+npm install --save-dev @icones/vite
+```
+
 ```ts
+import { defineConfig } from "vite"
 import { icones } from "@icones/vite"
 
-icones({
-  mode: "symbol",
-  dataDir: "./icons",
-  emitData: false,
-  fallbackToApi: false,
+export default defineConfig({
+  plugins: [
+    icones({
+      mode: "symbol",
+      dataDir: "./icons",
+      emitData: false,
+      fallbackToApi: false,
+    }),
+  ],
 })
 ```
+
+将插件放在框架插件之后或之前均可；它通过 Vite 的模块和 HTML 转换阶段收集静态名称。应用仍需安装并使用对应的 `@icones/react`、`@icones/vue` 等运行时适配器。
+
+构建转换与资源生产预设可通过独立的 [tooling 入口](./TOOLING.md) 复用；导入该入口不会初始化 Vite 插件。
 
 动态名称由各适配器配置中的运行时 API 处理。插件不会为动态表达式打包完整图标集。可通过 `importSources` 配置额外导出 `Icon` 的 barrel 路径。Vue 支持 `h` 和 `<script setup>`，vanilla 支持 `createIcon` / `mountIcon`；支持导入别名和备用图标，跳过局部同名变量和被覆盖的静态属性。
 
@@ -23,7 +34,7 @@ icones({
 
 `@iconify/*` 仅用于插件自身的开发/构建转换，不进入组件的 CSR/SSR 产物。`fallbackToApi`、`apiBaseUrl` 只控制构建期提取，与运行时无关。静态收集结果和本地 sources 优先；未收集的动态 `set:name` 默认从 `https://<set>.icones.go-slim.dev/data/<name>.json` 加载。通过 `IconConfig api={false}` 可关闭网络回退，也可以用 `api` 或 `createStaticIconLoader("/icons")` 替换为应用自己的服务。
 
-完整配置见 [项目文档](../../README.md)。
+完整的构建模式、运行时加载组合与框架示例见 [Vite 和 API 加载指南](https://icones.go-slim.dev/guide/loading)。
 
 推荐入口为 `icones`，配置类型为 `IconesPluginOptions`（也可使用 `Options`）。旧入口 `iconify`、`icons` 和类型 `IconifyPluginOptions` 保留为兼容别名，新代码请使用新名称。
 

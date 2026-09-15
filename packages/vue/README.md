@@ -2,6 +2,10 @@
 
 Vue 3.5+ 图标组件，支持原生 SVG 属性/事件、响应式配置、异步数据、SSR 和 Vite 静态提取。
 
+```sh
+npm install @icones/vue
+```
+
 ```vue
 <script setup lang="ts">
 import { ref } from "vue"
@@ -30,4 +34,4 @@ const selected = ref(false)
 
 SSR 不会在渲染期间自动请求网络。使用内联数据、symbol 引用、Vite 静态收集，或每请求创建 store 并预加载；客户端使用相同数据进行 hydration。
 
-开发：`bun run --cwd packages/vue play`。测试：`bun run --cwd packages/vue test`（需 Chrome）。完整 API 见[项目文档](../../README.md)。
+完整配置、静态收集和 SSR 示例见 [Vue 使用指南](https://icones.go-slim.dev/guide/vue/getting-started)。

@@ -2,6 +2,10 @@
 
 Svelte 5.20+ 的原生 runes 组件。通过 svelte-package 输出可由消费项目编译的 .svelte 文件和类型声明。
 
+```sh
+npm install @icones/svelte
+```
+
 ```svelte
 <script lang="ts">
   import { Icon, IconConfig } from "@icones/svelte"
@@ -20,4 +24,4 @@ Svelte 5.20+ 的原生 runes 组件。通过 svelte-package 输出可由消费�
 
 SSR 使用同步数据、symbol、Vite 静态提取或预加载 store，不会在服务端启动客户端 effect。使用 `$props.id()` 隔离内部 SVG ID。客户端 hydration 必须使用相同初始数据。
 
-开发时先 `bun run --cwd packages/svelte dev` 监听库的打包，再在另一个终端 `bun run --cwd packages/svelte play`。测试 `bun run --cwd packages/svelte test` 同时覆盖浏览器（需 Chrome）和服务端渲染。完整 API 见[项目文档](../../README.md)。
+完整配置、静态收集和 SSR 注意事项见 [Svelte 使用指南](https://icones.go-slim.dev/guide/svelte/getting-started)。

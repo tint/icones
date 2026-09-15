@@ -2,6 +2,10 @@
 
 基于 `@icones/core` 的 React 图标组件。支持直接数据、命名来源、异步加载、SVG/symbol、嵌套配置和 SSR。
 
+```sh
+npm install @icones/react
+```
+
 ```tsx
 import { Icon, IconConfig } from "@icones/react"
 
@@ -40,7 +44,7 @@ export function Example() {
 
 映射键为 set 前缀，值支持命名尺寸、数值或 CSS 长度。未匹配时使用 `default`，未配置兜底时继承父级或使用内置 `md`（20px）。嵌套映射按键合并；子级传入单值会替换整个尺寸映射。匿名 JSON/元组使用兜底尺寸；图标集通过 `sources` 注册，再按名称中的 set 匹配，备用图标按当前显示的来源匹配。`data` / `altData` 不接受整个图标集或名称字符串。
 
-`sizeValues` 在各 set 内按预设名称合并，并回退到共享预设和内置预设；原有的 `sizeValues={{ lg: 28 }}` 写法仍然有效。`api` 可写成 `api={{ tabler: { type: "fetch", baseUrl: "/icons" }, flag: { type: "symbol", baseUrl: "/icons" }, default: false }}`，分别选择加载方式。详见[按图标集配置](../core/README.md#按图标集配置)。
+`sizeValues` 在各 set 内按预设名称合并，并回退到共享预设和内置预设；原有的 `sizeValues={{ lg: 28 }}` 写法仍然有效。`api` 可写成 `api={{ tabler: { type: "fetch", baseUrl: "/icons" }, flag: { type: "symbol", baseUrl: "/icons" }, default: false }}`，分别选择加载方式。
 
 支持通过模块扩展添加或禁用尺寸预设（同样适用于尺寸映射中的值）：
 
@@ -55,4 +59,4 @@ declare module "@icones/react" {
 
 然后使用 `<IconConfig sizeValues={{ "2xl": 32 }}>` 配置新增尺寸的值。
 
-完整用法、静态收集和 SSR 示例见 [项目文档](../../README.md)。
+完整用法、静态收集和 SSR 示例见 [React 使用指南](https://icones.go-slim.dev/guide/react/getting-started)。

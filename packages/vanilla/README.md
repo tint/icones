@@ -2,6 +2,10 @@
 
 无框架依赖的 SVG 适配器，提供 **Light DOM Web Component**、普通 `<i>` 元素和手动 DOM API，复用核心加载器、缓存和渲染逻辑。
 
+```sh
+npm install @icones/vanilla
+```
+
 ## Web Component
 
 ```html
@@ -235,4 +239,4 @@ icon.destroy()
 
 `createIcon(props, { scope, document })` 创建未挂载实例，返回 `element`、`update`、`load`、`destroy`。`mountIcon(target, props, scope?)` 同时挂载。`update` 接收完整 props；手动 API 仍需调用 `destroy` 解除订阅并移除 SVG。样式可使用 CSS 字符串或 CSS 属性名对象，额外 SVG 属性通过 `attributes` 传入，事件使用 `element.addEventListener`。
 
-开发：`bun run --cwd packages/vanilla play`。测试：`bun run --cwd packages/vanilla test`。完整 API 和 Vite 用法见[项目文档](../../README.md)。
+完整 API 和 Vite 配置见 [Web Component 指南](https://icones.go-slim.dev/guide/vanilla/web/getting-started) 与 [普通元素指南](https://icones.go-slim.dev/guide/vanilla/standard/getting-started)。

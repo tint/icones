@@ -2,38 +2,34 @@
 
 只读、本地运行的 Icones MCP 服务。使用官方 MCP TypeScript SDK v2，通过 **stdio** 连接客户端，支持现代协议和 2025 年的 initialize 握手。没有 HTTP 监听端口，也不依赖画廊开发服务器。
 
-## 在工作区运行
+## 安装与运行
 
-需要 Node.js 22.18+。在仓库根目录运行：
-
-```sh
-bun install
-bun run build:packages
-bun run start:mcp
-```
-
-服务会等待客户端输入，这不是卡住。正常运行时 stdout 仅用于 MCP 消息，诊断写入 stderr。开发过程中也可直接运行源码：
+需要 Node.js 22.18+。可以直接通过包执行：
 
 ```sh
-bun packages/mcp-server/src/cli.ts --data-dir packages/icons
+npx --yes @icones/mcp-server
+# 或
+bunx @icones/mcp-server
 ```
 
-当前示例使用本地工作区包，不代表包已经发布到 npm。安装发布版本后，可通过 `icones-mcp-server` 可执行入口启动。
+服务会等待客户端输入，这不是卡住。正常运行时 stdout 仅用于 MCP 消息，诊断写入 stderr。需要使用自定义图标目录时：
+
+```sh
+npx --yes @icones/mcp-server --data-dir /absolute/path/to/icons
+```
+
+也可全局安装后使用 `icones-mcp-server` 可执行入口。省略 `--data-dir` 时自动使用随包安装的 `@icones/icons`；也可以通过 `ICON_DATA_DIR` 设置默认数据目录。
 
 ## 客户端配置
 
-以下适用于使用 `mcpServers` 字段的客户端；其他客户端请将 command / args 填入各自的 stdio 配置。把两处占位路径替换为本机的绝对路径，避免依赖客户端的工作目录。
+以下适用于使用 `mcpServers` 字段的客户端；其他客户端请将 command / args 填入各自的 stdio 配置。
 
 ```json
 {
   "mcpServers": {
     "icones": {
-      "command": "node",
-      "args": [
-        "/absolute/path/icones/packages/mcp-server/dist/cli.js",
-        "--data-dir",
-        "/absolute/path/icones/packages/icons"
-      ]
+      "command": "npx",
+      "args": ["--yes", "@icones/mcp-server"]
     }
   }
 }
@@ -95,14 +91,7 @@ MCP 客户端通过 `resources/list` 发现资源，再用 `resources/read` 读�
 
 这两种入口复用同一份文档快照。工具适合助手按需读取一个主题；Resources 适合客户端附加整份指南。安装页虽然同时展示所有框架，MCP 返回的文档只保留所选框架与 Vite 插件的配套安装命令，插件作为开发依赖安装。完整 Vanilla 基础资源除外，它明确包含两条独立教程。
 
-构建运行 `scripts/generate-docs.ts`，复用 `app/src/features/llms/markdown.ts` 的渲染器生成 `src/generated/documentation.json`，再内联到 `dist/`。运行时不导入网站源码，不依赖开发服务器、LLMs HTTP 地址或外网。文档是构建时快照；修改 Guide 后需要重新构建并重启 MCP 连接。
-
-```sh
-bun run --cwd packages/mcp-server build
-bun run --cwd packages/mcp-server check:docs
-```
-
-`check:docs` 在工作区检查快照是否与源内容一致。不要手动编辑生成文件。只改图标数据目录不会改变框架文档内容，客户端配置仍由使用者自行管理。
+框架文档作为构建时快照内联在包中，运行时不依赖网站、开发服务器、LLMs HTTP 地址或外网。升级包并重新连接 MCP 客户端即可获取新版文档。
 
 ## 数据与边界
 
@@ -117,6 +106,12 @@ bun run --cwd packages/mcp-server check:docs
 - 每个图标集仍遵循原始许可；此包不提供统一许可或额外授权。
 
 ## 编程接口
+
+直接嵌入服务时，将 MCP SDK 声明为应用自己的直接依赖：
+
+```sh
+npm install @icones/mcp-server @modelcontextprotocol/server
+```
 
 ```ts
 import { createIconMcpServer } from "@icones/mcp-server"

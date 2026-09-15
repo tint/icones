@@ -2,6 +2,10 @@
 
 SolidJS 图标组件，支持响应式 props、嵌套配置、异步来源和 SSR。
 
+```sh
+npm install @icones/solidjs
+```
+
 ```tsx
 import { createSignal } from "solid-js"
 import { Icon, IconConfig } from "@icones/solidjs"
@@ -29,4 +33,4 @@ export function Favorite() {
 
 发布产物包含三种入口：`solid` 条件下使用可再次编译的 JSX，`node` 条件下使用 SSR 版本，默认使用 DOM 版本。使用 `vite-plugin-solid` 的项目会选择 JSX 入口；服务端不会导入浏览器 DOM 实现。
 
-SSR 使用内联数据、静态提取、symbol 或每请求预加载的 store。客户端必须使用相同初始数据进行 hydration。开发：`bun run --cwd packages/solidjs play`。测试：`bun run --cwd packages/solidjs test`（需 Chrome）。完整 API 见[项目文档](../../README.md)。
+SSR 使用内联数据、静态提取、symbol 或每请求预加载的 store。客户端必须使用相同初始数据进行 hydration。完整配置见 [SolidJS 使用指南](https://icones.go-slim.dev/guide/solidjs/getting-started)。

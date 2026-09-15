@@ -19,12 +19,10 @@
 - `manifest`：统一校验、条目展开、创建、更新和稳定序列化。无上游名称或内置别名；序列化顺序由调用方显式传入。
 - `catalog`：筛选、计数和带缓存的查询索引。默认返回全部匹配项、字母排序且不保留空样式；`defaultLimit`、`maxLimit`、`variantOrder`、`includeEmptyVariants` 由网站或工具配置。`variantOrderBySet` 可覆盖某个集合的排序，避免把不同集合的样式名称混为全局规则；这些顺序只排序已有 facet，不创建不存在的样式。
 
-源码分组见 [源码结构](./src/README.md)：基础类型和校验在 `data/`，SVG 工具在 `svg/`，配置工具在 `options/`，目录与 manifest 在 `resources/`。公开子入口不随内部目录变化。
-
-网站请求客户端与展示策略归 `app/src/features/catalog/`。上游名称映射和内置别名归 Vite tooling 的集合生产预设；开发/构建期文件读写由 Vite 管理，MCP 独立管理只读文件访问，不能将这些依赖反向引入 Core。
+这些能力通过稳定的公开子入口提供；消费者不应导入 `src/` 内部实现路径。
 
 对象本身也可作为选项值时，调用方应向选项解析与合并函数传入判别函数，区分共享对象值与按图标集索引的映射。
 
-各模块通过 `@icones/core/<模块名>` 独立导入，发布产物统一为 `.js` 与 `.d.ts`；工作区的 `development` / `bun` 条件仍直接使用源码。已有函数签名、排序策略与 Flag viewBox 等兼容规则不变。旧 `@icones/utils` 导入应改为对应的 Core 入口；没有保留转发包。
+各模块通过 `@icones/core/<模块名>` 独立导入。旧 `@icones/utils` 导入应改为对应的 Core 入口；没有保留转发包。
 
 根入口继续提供组件运行时和基础数据/SVG 工具。资源工具应明确导入 `@icones/core/catalog`、`@icones/core/manifest` 或 `@icones/core/resource-types`。其中资源来源类型 `IconSource` 与 Core 根入口的图标输入类型同名但含义不同，必须从资源子入口导入。
