@@ -1,0 +1,71 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 256 256",
+      "children": [
+        [
+          "rect",
+          {
+            "fill": "none",
+            "width": "256",
+            "height": "256",
+            "key": "0"
+          }
+        ],
+        [
+          "polyline",
+          {
+            "fill": "none",
+            "points": "200 112 248 80 248 176 200 144",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "1"
+          }
+        ],
+        [
+          "line",
+          {
+            "fill": "none",
+            "x1": "48",
+            "y1": "40",
+            "x2": "208",
+            "y2": "216",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "2"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M113.06,64H192a8,8,0,0,1,8,8v87.63",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "3"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M186.18,192H32a8,8,0,0,1-8-8V72a8,8,0,0,1,8-8H69.82",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "4"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

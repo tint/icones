@@ -1,0 +1,74 @@
+[
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M4 19l3.332 -11.661",
+      "key": "1"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M16 5l2.806 9.823",
+      "key": "3"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M12 8v-2",
+      "key": "5"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M12 13v-1",
+      "key": "7"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M12 18v-2",
+      "key": "9"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M3 3l18 18",
+      "key": "11"
+    }
+  ]
+]

@@ -1,0 +1,110 @@
+[
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M10 15.464a4 4 0 1 0 4 -6.928a4 4 0 0 0 -4 6.928",
+      "key": "1"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M15.464 14l3 -5.196",
+      "key": "3"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M5.536 15.195l3 -5.196",
+      "key": "5"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M12 12h.01",
+      "key": "7"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M9 9l-6 -6",
+      "key": "9"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M5.5 8.5l3 -3",
+      "key": "11"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M21 21l-6 -6",
+      "key": "13"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M17 20l3 -3",
+      "key": "15"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M3 7v-4h4",
+      "key": "17"
+    }
+  ]
+]

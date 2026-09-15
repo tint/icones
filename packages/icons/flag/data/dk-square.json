@@ -1,0 +1,50 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 512 512",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-dk",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#c8102e",
+                  "d": "M0 0h512.1v512H0z",
+                  "key": "1"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#fff",
+                  "d": "M144 0h73.1v512H144z",
+                  "key": "3"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#fff",
+                  "d": "M0 219.4h512.1v73.2H0z",
+                  "key": "5"
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

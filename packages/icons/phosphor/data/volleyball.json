@@ -1,0 +1,115 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 256 256",
+      "children": [
+        [
+          "rect",
+          {
+            "fill": "none",
+            "width": "256",
+            "height": "256",
+            "key": "0"
+          }
+        ],
+        [
+          "line",
+          {
+            "fill": "none",
+            "x1": "80",
+            "y1": "44.86",
+            "x2": "128",
+            "y2": "128",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "1"
+          }
+        ],
+        [
+          "line",
+          {
+            "fill": "none",
+            "x1": "80",
+            "y1": "211.14",
+            "x2": "128",
+            "y2": "128",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "2"
+          }
+        ],
+        [
+          "line",
+          {
+            "fill": "none",
+            "x1": "224",
+            "y1": "128",
+            "x2": "128",
+            "y2": "128",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "3"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M116.58,32.66A96,96,0,0,1,173.06,128",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "4"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M51.14,185.56A96,96,0,0,1,105.47,89",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "5"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M216.28,165.78A96,96,0,0,1,105.47,167",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "6"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "none",
+            "cx": "128",
+            "cy": "128",
+            "r": "96",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "7"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

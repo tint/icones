@@ -1,0 +1,74 @@
+[
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M3.707 6.293l2.586 -2.586a1 1 0 0 1 1.414 0l5.586 5.586a1 1 0 0 1 0 1.414l-2.586 2.586a1 1 0 0 1 -1.414 0l-5.586 -5.586a1 1 0 0 1 0 -1.414",
+      "key": "1"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M6 10l-3 3l3 3l3 -3",
+      "key": "3"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M10 6l3 -3l3 3l-3 3",
+      "key": "5"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M12 12l1.5 1.5",
+      "key": "7"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M14.5 17a2.5 2.5 0 0 0 2.5 -2.5",
+      "key": "9"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M15 21a6 6 0 0 0 6 -6",
+      "key": "11"
+    }
+  ]
+]

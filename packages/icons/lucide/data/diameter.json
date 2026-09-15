@@ -1,0 +1,66 @@
+[
+  [
+    "circle",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "cx": "19",
+      "cy": "19",
+      "r": "2",
+      "key": "1"
+    }
+  ],
+  [
+    "circle",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "cx": "5",
+      "cy": "5",
+      "r": "2",
+      "key": "3"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M6.48 3.66a10 10 0 0 1 13.86 13.86",
+      "key": "5"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "m6.41 6.41 11.18 11.18",
+      "key": "7"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M3.66 6.48a10 10 0 0 0 13.86 13.86",
+      "key": "9"
+    }
+  ]
+]

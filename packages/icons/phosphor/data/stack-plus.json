@@ -1,0 +1,86 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 256 256",
+      "children": [
+        [
+          "rect",
+          {
+            "fill": "none",
+            "width": "256",
+            "height": "256",
+            "key": "0"
+          }
+        ],
+        [
+          "polyline",
+          {
+            "fill": "none",
+            "points": "32 128 128 184 224 128",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "1"
+          }
+        ],
+        [
+          "polygon",
+          {
+            "fill": "none",
+            "points": "32 80 128 136 224 80 128 24 32 80",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "2"
+          }
+        ],
+        [
+          "line",
+          {
+            "fill": "none",
+            "x1": "184",
+            "y1": "200",
+            "x2": "232",
+            "y2": "200",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "3"
+          }
+        ],
+        [
+          "line",
+          {
+            "fill": "none",
+            "x1": "208",
+            "y1": "176",
+            "x2": "208",
+            "y2": "224",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "4"
+          }
+        ],
+        [
+          "polyline",
+          {
+            "fill": "none",
+            "points": "32 176 128 232 144 222.67",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "5"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

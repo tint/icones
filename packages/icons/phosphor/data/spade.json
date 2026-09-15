@@ -1,0 +1,32 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 256 256",
+      "children": [
+        [
+          "rect",
+          {
+            "fill": "none",
+            "width": "256",
+            "height": "256",
+            "key": "0"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M128,24S32,72,32,136a48,48,0,0,0,79.55,36.18L96,224h64l-15.55-51.82A48,48,0,0,0,224,136C224,72,128,24,128,24Z",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "1"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

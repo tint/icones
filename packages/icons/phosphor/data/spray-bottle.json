@@ -1,0 +1,44 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 256 256",
+      "children": [
+        [
+          "rect",
+          {
+            "fill": "none",
+            "width": "256",
+            "height": "256",
+            "key": "0"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M72,72H200a48,48,0,0,0-48-48H80a8,8,0,0,0-8,8V80a32,32,0,0,1-32,32",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "1"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M160,72h0a263.14,263.14,0,0,1,40,139.47V224a8,8,0,0,1-8,8H88a8,8,0,0,1-8-8V167.38a32,32,0,0,1,12-25l16-12.78a32,32,0,0,0,12-25V72",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "2"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

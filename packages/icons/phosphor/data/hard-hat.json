@@ -1,0 +1,72 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 256 256",
+      "children": [
+        [
+          "rect",
+          {
+            "fill": "none",
+            "width": "256",
+            "height": "256",
+            "key": "0"
+          }
+        ],
+        [
+          "rect",
+          {
+            "fill": "none",
+            "x": "24",
+            "y": "160",
+            "width": "208",
+            "height": "40",
+            "rx": "8",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "1"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M104,160V40a8,8,0,0,1,8-8h32a8,8,0,0,1,8,8V160",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "2"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M216,160V136a88,88,0,0,0-64-84.69",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "3"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M40,160V136a88,88,0,0,1,64-84.69",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "4"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

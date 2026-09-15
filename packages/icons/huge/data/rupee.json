@@ -1,0 +1,38 @@
+[
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M6 3H9C11.7614 3 14 5.23858 14 8C14 10.7614 11.7614 13 9 13H6L15 21",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "1"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M6 3H18",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "3"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M6 8H18",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "5"
+    }
+  ]
+]

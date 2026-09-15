@@ -1,0 +1,38 @@
+---
+import { Icon, createIconConfig, type IconScopeOptions } from "@icones/astro"
+const gradient = { body: '<defs><linearGradient id="paint"><stop stop-color="red"/></linearGradient></defs><path fill="url(#paint)" d="M0 0h24v24H0z"/>', width: 24, height: 24 }
+const scope = createIconConfig({
+  sources: { custom: gradient },
+  api: async (name) => name === "remote" ? { body: '<circle cx="12" cy="12" r="10"/>', width: 24, height: 24 } : null,
+  defaultSize: { tabler: "lg", default: "xl" },
+})
+const runtimeName: string = "runtime:shape"
+const alternativeName: string = "local:shape"
+const setOptions = {
+  defaultSize: "lg",
+  sizeValues: { runtime: { lg: 48 }, default: { lg: 24 } },
+  strokeWidth: { runtime: 2, default: 3 },
+  absoluteStrokeWidth: { runtime: true, default: false },
+  api: {
+    runtime: { type: "symbol", baseUrl: "/runtime-icons" },
+    local: async () => ({ body: '<path d="M0 12h24"/>', width: 24, height: 24 }),
+    default: false,
+  },
+} satisfies IconScopeOptions
+---
+<html lang="zh-CN">
+  <head><meta charset="utf-8"/><title>@icones/astro</title></head>
+  <body>
+    <h1>@icones/astro</h1>
+    <Icon name="tabler:star" {scope} aria-label="静态图标" />
+    <Icon name="custom" {scope} aria-label="本地图标" />
+    <Icon name="custom" {scope} />
+    <Icon name="remote" {scope} aria-label="异步图标" />
+    <Icon name="missing" {scope} fallback="未找到图标" />
+    <Icon id="inline-alternative" data={{ body: '<circle r="8"/>' }}
+      altData={{ body: '<path d="M5 12l4 4 10-10" fill="none" stroke="currentColor"/>' }} showAlt />
+    <Icon name="tabler:heart" {scope} config={{ defaultSize: { tabler: "sm" }, api: { type: "symbol", baseUrl: "/icons" } }} />
+    <Icon id="per-set-primary" name={runtimeName} config={setOptions} />
+    <Icon id="per-set-alternative" name={runtimeName} altName={alternativeName} showAlt config={setOptions} />
+  </body>
+</html>

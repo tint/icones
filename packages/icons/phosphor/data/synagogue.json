@@ -1,0 +1,143 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 256 256",
+      "children": [
+        [
+          "rect",
+          {
+            "fill": "none",
+            "width": "256",
+            "height": "256",
+            "key": "0"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M200,64h0a16,16,0,0,1,16,16V216a0,0,0,0,1,0,0H184a0,0,0,0,1,0,0V80a16,16,0,0,1,16-16Z",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "1"
+          }
+        ],
+        [
+          "line",
+          {
+            "fill": "none",
+            "x1": "184",
+            "y1": "112",
+            "x2": "216",
+            "y2": "112",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "2"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M56,64h0A16,16,0,0,1,72,80V216a0,0,0,0,1,0,0H40a0,0,0,0,1,0,0V80A16,16,0,0,1,56,64Z",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "3"
+          }
+        ],
+        [
+          "line",
+          {
+            "fill": "none",
+            "x1": "40",
+            "y1": "112",
+            "x2": "72",
+            "y2": "112",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "4"
+          }
+        ],
+        [
+          "line",
+          {
+            "fill": "none",
+            "x1": "56",
+            "y1": "64",
+            "x2": "56",
+            "y2": "32",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "5"
+          }
+        ],
+        [
+          "line",
+          {
+            "fill": "none",
+            "x1": "200",
+            "y1": "64",
+            "x2": "200",
+            "y2": "32",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "6"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M72,216h40V176a16,16,0,0,1,16-16h0a16,16,0,0,1,16,16v40h40",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "7"
+          }
+        ],
+        [
+          "polyline",
+          {
+            "fill": "none",
+            "points": "184 136 128 104 72 136",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "8"
+          }
+        ],
+        [
+          "line",
+          {
+            "fill": "none",
+            "x1": "128",
+            "y1": "104",
+            "x2": "128",
+            "y2": "72",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "9"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

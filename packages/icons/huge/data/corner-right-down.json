@@ -1,0 +1,26 @@
+[
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M15 19L15 12C15 8.22876 15 6.34315 13.8284 5.17157C12.6569 4 10.7712 4 7 4L4 4",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "1"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M20 15C20 15 16.3176 20 15 20C13.6824 20 10 15 10 15",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "3"
+    }
+  ]
+]

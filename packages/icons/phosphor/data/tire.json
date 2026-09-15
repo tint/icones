@@ -1,0 +1,86 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 256 256",
+      "children": [
+        [
+          "rect",
+          {
+            "fill": "none",
+            "width": "256",
+            "height": "256",
+            "key": "0"
+          }
+        ],
+        [
+          "ellipse",
+          {
+            "fill": "none",
+            "cx": "168",
+            "cy": "128",
+            "rx": "16",
+            "ry": "40",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "1"
+          }
+        ],
+        [
+          "ellipse",
+          {
+            "fill": "none",
+            "cx": "164",
+            "cy": "128",
+            "rx": "52",
+            "ry": "96",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "2"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M232,224H92c-28.72,0-52-43-52-96S63.28,32,92,32h72",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "3"
+          }
+        ],
+        [
+          "polyline",
+          {
+            "fill": "none",
+            "points": "40.38 116.3 80 88 112.77 111.41",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "4"
+          }
+        ],
+        [
+          "polyline",
+          {
+            "fill": "none",
+            "points": "46.85 175.68 80 152 120.65 181.03",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "5"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

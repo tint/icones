@@ -1,0 +1,99 @@
+{
+  "name": "@icones/vite",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "homepage": "https://icones.go-slim.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tint/icones.git",
+    "directory": "packages/vite"
+  },
+  "bugs": {
+    "url": "https://github.com/tint/icones/issues"
+  },
+  "files": [
+    "dist",
+    "src",
+    "client.d.ts",
+    "SERVER.md",
+    "TOOLING.md"
+  ],
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "bun": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./client": "./client.d.ts",
+    "./tooling": {
+      "development": "./src/tooling/index.ts",
+      "bun": "./src/tooling/index.ts",
+      "types": "./dist/tooling/index.d.ts",
+      "import": "./dist/tooling/index.js",
+      "default": "./dist/tooling/index.js"
+    },
+    "./tooling/elements": {
+      "development": "./src/tooling/elements.ts",
+      "bun": "./src/tooling/elements.ts",
+      "types": "./dist/tooling/elements.d.ts",
+      "import": "./dist/tooling/elements.js",
+      "default": "./dist/tooling/elements.js"
+    },
+    "./tooling/symbol": {
+      "development": "./src/tooling/symbol.ts",
+      "bun": "./src/tooling/symbol.ts",
+      "types": "./dist/tooling/symbol.d.ts",
+      "import": "./dist/tooling/symbol.js",
+      "default": "./dist/tooling/symbol.js"
+    },
+    "./tooling/collections": {
+      "development": "./src/tooling/collections.ts",
+      "bun": "./src/tooling/collections.ts",
+      "types": "./dist/tooling/collections.d.ts",
+      "import": "./dist/tooling/collections.js",
+      "default": "./dist/tooling/collections.js"
+    },
+    "./server": {
+      "development": "./src/server/index.ts",
+      "bun": "./src/server/index.ts",
+      "types": "./dist/server/index.d.ts",
+      "import": "./dist/server/index.js",
+      "default": "./dist/server/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit && bun run typecheck:tests",
+    "test": "bun test ./tests",
+    "typecheck:tests": "tsc -p tsconfig.tests.json && tsc -p tsconfig.test-types.json"
+  },
+  "dependencies": {
+    "@icones/core": "workspace:*",
+    "@icones/icons": "workspace:*",
+    "@iconify/types": "^2.0.0",
+    "@iconify/utils": "^3.1.7",
+    "parse5": "^8.0.1",
+    "saxes": "^6.0.0"
+  },
+  "peerDependencies": {
+    "vite": "^8.0.0"
+  },
+  "devDependencies": {
+    "tsdown": "^0.22.5",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.2",
+    "@types/bun": "^1.3.5",
+    "@types/node": "^24.13.3",
+    "jsdom": "^30.0.1",
+    "@types/jsdom": "^30.0.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "@icones/react": "workspace:*",
+    "@icones/vanilla": "workspace:*"
+  }
+}

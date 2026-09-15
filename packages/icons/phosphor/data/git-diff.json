@@ -1,0 +1,96 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 256 256",
+      "children": [
+        [
+          "rect",
+          {
+            "fill": "none",
+            "width": "256",
+            "height": "256",
+            "key": "0"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M200,168V110.63a16,16,0,0,0-4.69-11.32L144,48",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "1"
+          }
+        ],
+        [
+          "polyline",
+          {
+            "fill": "none",
+            "points": "144 96 144 48 192 48",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "2"
+          }
+        ],
+        [
+          "path",
+          {
+            "fill": "none",
+            "d": "M56,88v57.37a16,16,0,0,0,4.69,11.32L112,208",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "3"
+          }
+        ],
+        [
+          "polyline",
+          {
+            "fill": "none",
+            "points": "112 160 112 208 64 208",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "4"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "none",
+            "cx": "56",
+            "cy": "64",
+            "r": "24",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "5"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "none",
+            "cx": "200",
+            "cy": "192",
+            "r": "24",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "6"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

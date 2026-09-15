@@ -1,0 +1,80 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 512 512",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-gm",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "g",
+                {
+                  "fillRule": "evenodd",
+                  "strokeWidth": "1pt",
+                  "key": "1",
+                  "children": [
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "red",
+                        "d": "M0 0h512v170.7H0z",
+                        "key": "1"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#fff",
+                        "d": "M0 170.7h512V199H0z",
+                        "key": "3"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#009",
+                        "d": "M0 199.1h512V313H0z",
+                        "key": "5"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#fff",
+                        "d": "M0 312.9h512v28.4H0z",
+                        "key": "7"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#090",
+                        "d": "M0 341.3h512V512H0z",
+                        "key": "9"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

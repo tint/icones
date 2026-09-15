@@ -1,0 +1,7 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node", "astro/client"]
+  },
+  "include": ["src", "playground", "tests", "tsdown.config.ts"]
+}

@@ -1,0 +1,94 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 640 480",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-cg",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "defs",
+                {
+                  "key": "1",
+                  "children": [
+                    "\n    ",
+                    [
+                      "clipPath",
+                      {
+                        "id": "cg-a",
+                        "key": "1",
+                        "children": [
+                          "\n      ",
+                          [
+                            "path",
+                            {
+                              "fillOpacity": ".7",
+                              "d": "M-79.5 32h640v480h-640z",
+                              "key": "1"
+                            }
+                          ],
+                          "\n    "
+                        ]
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n  ",
+              [
+                "g",
+                {
+                  "fillRule": "evenodd",
+                  "strokeWidth": "1pt",
+                  "clipPath": "url(#cg-a)",
+                  "transform": "translate(79.5 -32)",
+                  "key": "3",
+                  "children": [
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#ff0",
+                        "d": "M-119.5 32h720v480h-720z",
+                        "key": "1"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#00ca00",
+                        "d": "M-119.5 32v480l480-480z",
+                        "key": "3"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "red",
+                        "d": "M120.5 512h480V32z",
+                        "key": "5"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

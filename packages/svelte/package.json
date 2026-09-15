@@ -1,0 +1,52 @@
+{
+  "name": "@icones/svelte",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "homepage": "https://icones.go-slim.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tint/icones.git",
+    "directory": "packages/svelte"
+  },
+  "bugs": {
+    "url": "https://github.com/tint/icones/issues"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "svelte-package -i src -o dist",
+    "dev": "svelte-package -i src -o dist --watch",
+    "play": "vite",
+    "test": "vitest run && vitest run --config vitest.ssr.config.ts",
+    "typecheck": "svelte-check --tsconfig tsconfig.json"
+  },
+  "dependencies": {
+    "@icones/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "typescript": "~6.0.2",
+    "@sveltejs/package": "^2.5.8",
+    "@sveltejs/vite-plugin-svelte": "^7.2.0",
+    "@vitest/browser-playwright": "^4.1.10",
+    "playwright": "^1.61.1",
+    "svelte": "^5.56.4",
+    "svelte-check": "^4.7.2",
+    "vite": "^8.2.2",
+    "vitest": "^4.1.10",
+    "@icones/vite": "workspace:*"
+  },
+  "peerDependencies": {
+    "svelte": "^5.20.0"
+  }
+}

@@ -1,0 +1,205 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 512 512",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-in",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#f93",
+                  "d": "M0 0h512v170.7H0z",
+                  "key": "1"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#fff",
+                  "d": "M0 170.7h512v170.6H0z",
+                  "key": "3"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#128807",
+                  "d": "M0 341.3h512V512H0z",
+                  "key": "5"
+                }
+              ],
+              "\n  ",
+              [
+                "g",
+                {
+                  "transform": "translate(256 256)scale(3.41333)",
+                  "key": "7",
+                  "children": [
+                    "\n    ",
+                    [
+                      "circle",
+                      {
+                        "r": "20",
+                        "fill": "#008",
+                        "key": "1"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "circle",
+                      {
+                        "r": "17.5",
+                        "fill": "#fff",
+                        "key": "3"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "circle",
+                      {
+                        "r": "3.5",
+                        "fill": "#008",
+                        "key": "5"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "g",
+                      {
+                        "id": "in-d",
+                        "key": "7",
+                        "children": [
+                          "\n      ",
+                          [
+                            "g",
+                            {
+                              "id": "in-c",
+                              "key": "1",
+                              "children": [
+                                "\n        ",
+                                [
+                                  "g",
+                                  {
+                                    "id": "in-b",
+                                    "key": "1",
+                                    "children": [
+                                      "\n          ",
+                                      [
+                                        "g",
+                                        {
+                                          "id": "in-a",
+                                          "fill": "#008",
+                                          "key": "1",
+                                          "children": [
+                                            "\n            ",
+                                            [
+                                              "circle",
+                                              {
+                                                "r": ".9",
+                                                "transform": "rotate(7.5 -8.8 133.5)",
+                                                "key": "1"
+                                              }
+                                            ],
+                                            "\n            ",
+                                            [
+                                              "path",
+                                              {
+                                                "d": "M0 17.5.6 7 0 2l-.6 5z",
+                                                "key": "3"
+                                              }
+                                            ],
+                                            "\n          "
+                                          ]
+                                        }
+                                      ],
+                                      "\n          ",
+                                      [
+                                        "use",
+                                        {
+                                          "xlinkHref": "#in-a",
+                                          "width": "100%",
+                                          "height": "100%",
+                                          "transform": "rotate(15)",
+                                          "key": "3"
+                                        }
+                                      ],
+                                      "\n        "
+                                    ]
+                                  }
+                                ],
+                                "\n        ",
+                                [
+                                  "use",
+                                  {
+                                    "xlinkHref": "#in-b",
+                                    "width": "100%",
+                                    "height": "100%",
+                                    "transform": "rotate(30)",
+                                    "key": "3"
+                                  }
+                                ],
+                                "\n      "
+                              ]
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#in-c",
+                              "width": "100%",
+                              "height": "100%",
+                              "transform": "rotate(60)",
+                              "key": "3"
+                            }
+                          ],
+                          "\n    "
+                        ]
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#in-d",
+                        "width": "100%",
+                        "height": "100%",
+                        "transform": "rotate(120)",
+                        "key": "9"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#in-d",
+                        "width": "100%",
+                        "height": "100%",
+                        "transform": "rotate(-120)",
+                        "key": "11"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

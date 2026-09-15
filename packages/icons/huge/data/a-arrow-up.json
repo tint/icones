@@ -1,0 +1,50 @@
+[
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M4 14H10",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "1"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M18 8V17",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "3"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M2 18L6.05826 6.66218C6.37429 5.77927 7.62571 5.77927 7.94174 6.66219L12 18",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "5"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M14 11C14 11 16.946 7.00001 18 7C19.0541 6.99999 22 11 22 11",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "7"
+    }
+  ]
+]

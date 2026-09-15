@@ -1,0 +1,102 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 512 512",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-bs",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "defs",
+                {
+                  "key": "1",
+                  "children": [
+                    "\n    ",
+                    [
+                      "clipPath",
+                      {
+                        "id": "bs-a",
+                        "key": "1",
+                        "children": [
+                          "\n      ",
+                          [
+                            "path",
+                            {
+                              "fillOpacity": ".7",
+                              "d": "M56.6 26.4H537v480.3H56.6z",
+                              "key": "1"
+                            }
+                          ],
+                          "\n    "
+                        ]
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n  ",
+              [
+                "g",
+                {
+                  "fillRule": "evenodd",
+                  "clipPath": "url(#bs-a)",
+                  "transform": "matrix(1.066 0 0 1.067 -60.4 -28.1)",
+                  "key": "3",
+                  "children": [
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#fff",
+                        "d": "M990 506.2H9.4V27.6H990z",
+                        "key": "1"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#ffe900",
+                        "d": "M990 370.6H9.4V169.2H990z",
+                        "key": "3"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#08ced6",
+                        "d": "M990 506.2H9.4V346.7H990zm0-319H9.4V27.9H990z",
+                        "key": "5"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#000001",
+                        "d": "M9 25.9c2.1 0 392.3 237 392.3 237L7.8 505.3z",
+                        "key": "7"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

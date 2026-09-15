@@ -1,0 +1,110 @@
+[
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M14.5 7C13 5.5 11 4 8 4C4.5 4 2 6 2 9C2 12 4.68629 14 8 14C11.3137 14 17 12 22 5",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "1"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M22 5V20",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "3"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M18 10L18 20",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "5"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M14 12.5L14 20",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "7"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M10 14L10 20",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "9"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M6 14L6 20",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "11"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M10 4.5L10 9.5",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "13"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M6 4.5L6 9.5",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "15"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M2 9L2 20",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "17"
+    }
+  ]
+]

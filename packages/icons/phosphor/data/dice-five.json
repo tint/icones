@@ -1,0 +1,86 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 256 256",
+      "children": [
+        [
+          "rect",
+          {
+            "fill": "none",
+            "width": "256",
+            "height": "256",
+            "key": "0"
+          }
+        ],
+        [
+          "rect",
+          {
+            "fill": "none",
+            "x": "40",
+            "y": "40",
+            "width": "176",
+            "height": "176",
+            "rx": "24",
+            "stroke": "currentColor",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "16",
+            "key": "1"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "currentColor",
+            "cx": "92",
+            "cy": "92",
+            "r": "12",
+            "key": "2"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "currentColor",
+            "cx": "164",
+            "cy": "92",
+            "r": "12",
+            "key": "3"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "currentColor",
+            "cx": "92",
+            "cy": "164",
+            "r": "12",
+            "key": "4"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "currentColor",
+            "cx": "128",
+            "cy": "128",
+            "r": "12",
+            "key": "5"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "currentColor",
+            "cx": "164",
+            "cy": "164",
+            "r": "12",
+            "key": "6"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

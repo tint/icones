@@ -1,0 +1,57 @@
+{
+  "name": "@icones/solidjs",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "homepage": "https://icones.go-slim.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tint/icones.git",
+    "directory": "packages/solidjs"
+  },
+  "bugs": {
+    "url": "https://github.com/tint/icones/issues"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/client/index.d.ts",
+      "solid": "./dist/source/index.jsx",
+      "node": "./dist/server/index.js",
+      "default": "./dist/client/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "tsc --noEmit",
+    "play": "vite",
+    "test": "bun run test:ssr && bun run test:browser",
+    "test:browser": "vitest run",
+    "test:ssr": "bun test ./tests/ssr.test.ts"
+  },
+  "dependencies": {
+    "@icones/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "tsdown": "^0.22.5",
+    "typescript": "~6.0.2",
+    "solid-js": "^1.9.9",
+    "@vitest/browser-playwright": "^4.1.10",
+    "playwright": "^1.61.1",
+    "rolldown-plugin-solid": "^0.2.1",
+    "vite": "^8.2.2",
+    "vite-plugin-solid": "^2.11.12",
+    "vitest": "^4.1.10",
+    "@icones/vite": "workspace:*",
+    "@types/bun": "^1.3.5"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.9.9"
+  }
+}

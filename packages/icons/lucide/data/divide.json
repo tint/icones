@@ -1,0 +1,45 @@
+[
+  [
+    "circle",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "cx": "12",
+      "cy": "6",
+      "r": "1",
+      "key": "1"
+    }
+  ],
+  [
+    "line",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "x1": "5",
+      "x2": "19",
+      "y1": "12",
+      "y2": "12",
+      "key": "3"
+    }
+  ],
+  [
+    "circle",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "cx": "12",
+      "cy": "18",
+      "r": "1",
+      "key": "5"
+    }
+  ]
+]

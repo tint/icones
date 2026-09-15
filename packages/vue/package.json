@@ -1,0 +1,57 @@
+{
+  "name": "@icones/vue",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "homepage": "https://icones.go-slim.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tint/icones.git",
+    "directory": "packages/vue"
+  },
+  "bugs": {
+    "url": "https://github.com/tint/icones/issues"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "typecheck": "vue-tsc --noEmit",
+    "play": "vite",
+    "test": "bun run test:ssr && bun run test:browser",
+    "test:browser": "vitest run",
+    "test:ssr": "bun test ./tests/ssr.test.ts"
+  },
+  "dependencies": {
+    "@icones/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "tsdown": "^0.22.5",
+    "typescript": "~6.0.2",
+    "vue": "^3.5.39",
+    "@vue/server-renderer": "^3.5.39",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "@vitest/browser-playwright": "^4.1.10",
+    "playwright": "^1.61.1",
+    "vite": "^8.2.2",
+    "vitest": "^4.1.10",
+    "vue-tsc": "^3.3.7",
+    "@icones/vite": "workspace:*",
+    "@types/bun": "^1.3.5"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  }
+}

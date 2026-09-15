@@ -1,0 +1,120 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 256 256",
+      "children": [
+        [
+          "rect",
+          {
+            "fill": "none",
+            "width": "256",
+            "height": "256",
+            "key": "0"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "currentColor",
+            "cx": "64",
+            "cy": "48",
+            "r": "16",
+            "key": "1"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "currentColor",
+            "cx": "128",
+            "cy": "48",
+            "r": "16",
+            "key": "2"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "currentColor",
+            "cx": "192",
+            "cy": "48",
+            "r": "16",
+            "key": "3"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "currentColor",
+            "cx": "64",
+            "cy": "104",
+            "r": "16",
+            "key": "4"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "currentColor",
+            "cx": "128",
+            "cy": "104",
+            "r": "16",
+            "key": "5"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "currentColor",
+            "cx": "192",
+            "cy": "104",
+            "r": "16",
+            "key": "6"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "currentColor",
+            "cx": "64",
+            "cy": "160",
+            "r": "16",
+            "key": "7"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "currentColor",
+            "cx": "128",
+            "cy": "160",
+            "r": "16",
+            "key": "8"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "currentColor",
+            "cx": "128",
+            "cy": "216",
+            "r": "16",
+            "key": "9"
+          }
+        ],
+        [
+          "circle",
+          {
+            "fill": "currentColor",
+            "cx": "192",
+            "cy": "160",
+            "r": "16",
+            "key": "10"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

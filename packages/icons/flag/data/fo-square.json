@@ -1,0 +1,93 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 512 512",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-fo",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "defs",
+                {
+                  "key": "1",
+                  "children": [
+                    "\n    ",
+                    [
+                      "clipPath",
+                      {
+                        "id": "fo-a",
+                        "key": "1",
+                        "children": [
+                          "\n      ",
+                          [
+                            "path",
+                            {
+                              "fillOpacity": ".7",
+                              "d": "M0 0h512v512H0z",
+                              "key": "1"
+                            }
+                          ],
+                          "\n    "
+                        ]
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n  ",
+              [
+                "g",
+                {
+                  "fillRule": "evenodd",
+                  "strokeWidth": "0",
+                  "clipPath": "url(#fo-a)",
+                  "key": "3",
+                  "children": [
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#fff",
+                        "d": "M-78 0h708.2v512H-78z",
+                        "key": "1"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#003897",
+                        "d": "M-75.9 199.1h198.3V0h113.3v199.1h396.6V313H235.7v199H122.4V312.9H-76z",
+                        "key": "3"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#d72828",
+                        "d": "M-75.9 227.6h226.6V0h56.7v227.6h424.9v56.9h-425V512h-56.6V284.4H-75.9z",
+                        "key": "5"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

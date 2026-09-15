@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "endOfLine": "lf",
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/.svelte-kit/**",
+    "**/.astro/**",
+    "dist/**",
+    "packages/icons/*/data/**",
+    "packages/icons/*/symbols/**",
+    "packages/icons/*/manifest.json",
+    "packages/names/types/**",
+    "packages/mcp-server/src/generated/**",
+    "bun.lock"
+  ],
+  "printWidth": 80,
+  "semi": false,
+  "singleQuote": false,
+  "sortPackageJson": false,
+  "sortTailwindcss": {
+    "functions": ["cn", "cva"],
+    "stylesheet": "./app/src/styles/index.css"
+  },
+  "tabWidth": 2,
+  "trailingComma": "es5"
+}

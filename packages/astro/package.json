@@ -1,0 +1,48 @@
+{
+  "name": "@icones/astro",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "homepage": "https://icones.go-slim.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tint/icones.git",
+    "directory": "packages/astro"
+  },
+  "bugs": {
+    "url": "https://github.com/tint/icones/issues"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./Icon.astro": "./dist/Icon.astro"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "astro check --root playground --tsconfig ../tsconfig.json --minimumFailingSeverity error",
+    "play": "astro dev --root playground",
+    "test": "astro build --root playground && bun tests/verify.ts && ICONES_TEST_MODE=symbol astro build --root playground && ICONES_TEST_MODE=symbol bun tests/verify.ts"
+  },
+  "dependencies": {
+    "@icones/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "tsdown": "^0.22.5",
+    "typescript": "~6.0.2",
+    "astro": "^7.3.2",
+    "@astrojs/check": "^0.9.10",
+    "@icones/vite": "workspace:*"
+  },
+  "peerDependencies": {
+    "astro": "^7.0.0"
+  }
+}

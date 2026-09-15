@@ -1,0 +1,56 @@
+[
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M8 21s-4-3-4-9 4-9 4-9",
+      "key": "1"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "d": "M16 3s4 3 4 9-4 9-4 9",
+      "key": "3"
+    }
+  ],
+  [
+    "line",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "x1": "15",
+      "x2": "9",
+      "y1": "9",
+      "y2": "15",
+      "key": "5"
+    }
+  ],
+  [
+    "line",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "x1": "9",
+      "x2": "15",
+      "y1": "9",
+      "y2": "15",
+      "key": "7"
+    }
+  ]
+]

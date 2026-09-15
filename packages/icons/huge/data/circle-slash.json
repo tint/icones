@@ -1,0 +1,28 @@
+[
+  [
+    "circle",
+    {
+      "fill": "none",
+      "cx": "12",
+      "cy": "12",
+      "r": "9",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "1"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M21 3L3 21",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "3"
+    }
+  ]
+]

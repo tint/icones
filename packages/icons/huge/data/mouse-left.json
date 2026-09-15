@@ -1,0 +1,40 @@
+[
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M12.7422 8.5V5.5",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "1"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M11.7422 2.0449C12.0607 2.0152 12.3939 2 12.7422 2C18.7422 2 20.2422 6.50998 20.2422 12C20.2422 17.49 18.7422 22 12.7422 22C6.74212 22 5.24219 17.49 5.24219 12C5.24219 11.3158 5.26548 10.6469 5.31788 10",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "3"
+    }
+  ],
+  [
+    "circle",
+    {
+      "fill": "none",
+      "cx": "5.74219",
+      "cy": "4",
+      "r": "2",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "5"
+    }
+  ]
+]

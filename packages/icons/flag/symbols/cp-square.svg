@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="icon" viewBox="0 0 512 512"><g id="remote-flag-icons-cp" fill="#000" stroke-width="var(--icones-stroke-width, 1)">
+  <g fill-rule="evenodd" stroke-width="var(--icones-stroke-width, 1pt)">
+    <path fill="#fff" d="M0 0h512v512H0z"/>
+    <path fill="#000091" d="M0 0h170.7v512H0z"/>
+    <path fill="#e1000f" d="M341.3 0H512v512H341.3z"/>
+  </g>
+</g></symbol></defs></svg>

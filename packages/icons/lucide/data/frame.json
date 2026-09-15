@@ -1,0 +1,62 @@
+[
+  [
+    "line",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "x1": "22",
+      "x2": "2",
+      "y1": "6",
+      "y2": "6",
+      "key": "1"
+    }
+  ],
+  [
+    "line",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "x1": "22",
+      "x2": "2",
+      "y1": "18",
+      "y2": "18",
+      "key": "3"
+    }
+  ],
+  [
+    "line",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "x1": "6",
+      "x2": "6",
+      "y1": "2",
+      "y2": "22",
+      "key": "5"
+    }
+  ],
+  [
+    "line",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "x1": "18",
+      "x2": "18",
+      "y1": "2",
+      "y2": "22",
+      "key": "7"
+    }
+  ]
+]

@@ -1,0 +1,192 @@
+{
+  "name": "@icones/core",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "homepage": "https://icones.go-slim.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tint/icones.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/tint/icones/issues"
+  },
+  "files": [
+    "dist",
+    "src",
+    "RUNTIME.md",
+    "UTILITIES.md"
+  ],
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "bun": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./data": {
+      "development": "./src/runtime/sources.ts",
+      "bun": "./src/runtime/sources.ts",
+      "types": "./dist/data.d.ts",
+      "import": "./dist/data.js",
+      "default": "./dist/data.js"
+    },
+    "./element-types": {
+      "development": "./src/data/element-types.ts",
+      "bun": "./src/data/element-types.ts",
+      "types": "./dist/element-types.d.ts",
+      "import": "./dist/element-types.js",
+      "default": "./dist/element-types.js"
+    },
+    "./elements": {
+      "development": "./src/data/elements.ts",
+      "bun": "./src/data/elements.ts",
+      "types": "./dist/elements.d.ts",
+      "import": "./dist/elements.js",
+      "default": "./dist/elements.js"
+    },
+    "./loaders": {
+      "development": "./src/runtime/loaders.ts",
+      "bun": "./src/runtime/loaders.ts",
+      "types": "./dist/loaders.d.ts",
+      "import": "./dist/loaders.js",
+      "default": "./dist/loaders.js"
+    },
+    "./registry": {
+      "development": "./src/runtime/registry.ts",
+      "bun": "./src/runtime/registry.ts",
+      "types": "./dist/registry.d.ts",
+      "import": "./dist/registry.js",
+      "default": "./dist/registry.js"
+    },
+    "./runtime": {
+      "development": "./src/runtime/compiled.ts",
+      "bun": "./src/runtime/compiled.ts",
+      "types": "./dist/runtime.d.ts",
+      "import": "./dist/runtime.js",
+      "default": "./dist/runtime.js"
+    },
+    "./store": {
+      "development": "./src/runtime/store.ts",
+      "bun": "./src/runtime/store.ts",
+      "types": "./dist/store.d.ts",
+      "import": "./dist/store.js",
+      "default": "./dist/store.js"
+    },
+    "./svg": {
+      "development": "./src/svg/index.ts",
+      "bun": "./src/svg/index.ts",
+      "types": "./dist/svg.d.ts",
+      "import": "./dist/svg.js",
+      "default": "./dist/svg.js"
+    },
+    "./symbol": {
+      "development": "./src/runtime/symbol.ts",
+      "bun": "./src/runtime/symbol.ts",
+      "types": "./dist/symbol.d.ts",
+      "import": "./dist/symbol.js",
+      "default": "./dist/symbol.js"
+    },
+    "./types": {
+      "development": "./src/runtime/types.ts",
+      "bun": "./src/runtime/types.ts",
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.js",
+      "default": "./dist/types.js"
+    },
+    "./sizes": {
+      "development": "./src/options/sizes.ts",
+      "bun": "./src/options/sizes.ts",
+      "types": "./dist/sizes.d.ts",
+      "import": "./dist/sizes.js",
+      "default": "./dist/sizes.js"
+    },
+    "./presentation": {
+      "development": "./src/runtime/presentation.ts",
+      "bun": "./src/runtime/presentation.ts",
+      "types": "./dist/presentation.d.ts",
+      "import": "./dist/presentation.js",
+      "default": "./dist/presentation.js"
+    },
+    "./controller": {
+      "development": "./src/runtime/controller.ts",
+      "bun": "./src/runtime/controller.ts",
+      "types": "./dist/controller.d.ts",
+      "import": "./dist/controller.js",
+      "default": "./dist/controller.js"
+    },
+    "./set-options": {
+      "development": "./src/options/set-options.ts",
+      "bun": "./src/options/set-options.ts",
+      "types": "./dist/set-options.d.ts",
+      "import": "./dist/set-options.js",
+      "default": "./dist/set-options.js"
+    },
+    "./slug": {
+      "development": "./src/resources/slug.ts",
+      "bun": "./src/resources/slug.ts",
+      "types": "./dist/slug.d.ts",
+      "import": "./dist/slug.js",
+      "default": "./dist/slug.js"
+    },
+    "./view-box": {
+      "development": "./src/svg/view-box.ts",
+      "bun": "./src/svg/view-box.ts",
+      "types": "./dist/view-box.d.ts",
+      "import": "./dist/view-box.js",
+      "default": "./dist/view-box.js"
+    },
+    "./resource-types": {
+      "development": "./src/resources/types.ts",
+      "bun": "./src/resources/types.ts",
+      "types": "./dist/resource-types.d.ts",
+      "import": "./dist/resource-types.js",
+      "default": "./dist/resource-types.js"
+    },
+    "./manifest": {
+      "development": "./src/resources/manifest.ts",
+      "bun": "./src/resources/manifest.ts",
+      "types": "./dist/manifest.d.ts",
+      "import": "./dist/manifest.js",
+      "default": "./dist/manifest.js"
+    },
+    "./catalog": {
+      "development": "./src/resources/catalog.ts",
+      "bun": "./src/resources/catalog.ts",
+      "types": "./dist/catalog.d.ts",
+      "import": "./dist/catalog.js",
+      "default": "./dist/catalog.js"
+    },
+    "./icon-data": {
+      "development": "./src/data/icon-data.ts",
+      "bun": "./src/data/icon-data.ts",
+      "types": "./dist/icon-data.d.ts",
+      "import": "./dist/icon-data.js",
+      "default": "./dist/icon-data.js"
+    },
+    "./svg-data": {
+      "development": "./src/svg/data.ts",
+      "bun": "./src/svg/data.ts",
+      "types": "./dist/svg-data.d.ts",
+      "import": "./dist/svg-data.js",
+      "default": "./dist/svg-data.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit && bun run typecheck:tests",
+    "test": "bun test ./tests",
+    "typecheck:tests": "tsc -p tsconfig.tests.json"
+  },
+  "dependencies": {
+    "@icones/names": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "tsdown": "^0.22.5",
+    "typescript": "~6.0.2",
+    "@types/bun": "^1.3.5"
+  }
+}

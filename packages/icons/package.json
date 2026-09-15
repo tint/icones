@@ -1,0 +1,26 @@
+{
+  "name": "@icones/icons",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "description": "Icon collection artwork, manifests and original licenses.",
+  "homepage": "https://icones.go-slim.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tint/icones.git",
+    "directory": "packages/icons"
+  },
+  "bugs": {
+    "url": "https://github.com/tint/icones/issues"
+  },
+  "exports": {
+    "./*": "./*"
+  },
+  "files": [
+    "README.md",
+    "*/data/*.json",
+    "*/symbols/*.svg",
+    "*/manifest.json",
+    "*/license.txt"
+  ]
+}

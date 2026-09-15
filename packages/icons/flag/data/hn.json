@@ -1,0 +1,173 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 640 480",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-hn",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#18c3df",
+                  "d": "M0 0h640v480H0z",
+                  "key": "1"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#fff",
+                  "d": "M0 160h640v160H0z",
+                  "key": "3"
+                }
+              ],
+              "\n  ",
+              [
+                "g",
+                {
+                  "id": "hn-c",
+                  "fill": "#18c3df",
+                  "transform": "translate(320 240)scale(26.66665)",
+                  "key": "5",
+                  "children": [
+                    "\n    ",
+                    [
+                      "g",
+                      {
+                        "id": "hn-b",
+                        "key": "1",
+                        "children": [
+                          "\n      ",
+                          [
+                            "path",
+                            {
+                              "id": "hn-a",
+                              "d": "m-.3 0 .5.1L0-1z",
+                              "key": "1"
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#hn-a",
+                              "width": "100%",
+                              "height": "100%",
+                              "transform": "scale(-1 1)",
+                              "key": "3"
+                            }
+                          ],
+                          "\n    "
+                        ]
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#hn-b",
+                        "width": "100%",
+                        "height": "100%",
+                        "transform": "rotate(72)",
+                        "key": "3"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#hn-b",
+                        "width": "100%",
+                        "height": "100%",
+                        "transform": "rotate(-72)",
+                        "key": "5"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#hn-b",
+                        "width": "100%",
+                        "height": "100%",
+                        "transform": "rotate(144)",
+                        "key": "7"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#hn-b",
+                        "width": "100%",
+                        "height": "100%",
+                        "transform": "rotate(-144)",
+                        "key": "9"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n  ",
+              [
+                "use",
+                {
+                  "xlinkHref": "#hn-c",
+                  "width": "100%",
+                  "height": "100%",
+                  "transform": "translate(133.3 -42.7)",
+                  "key": "7"
+                }
+              ],
+              "\n  ",
+              [
+                "use",
+                {
+                  "xlinkHref": "#hn-c",
+                  "width": "100%",
+                  "height": "100%",
+                  "transform": "translate(133.3 37.3)",
+                  "key": "9"
+                }
+              ],
+              "\n  ",
+              [
+                "use",
+                {
+                  "xlinkHref": "#hn-c",
+                  "width": "100%",
+                  "height": "100%",
+                  "transform": "translate(-133.3 -42.7)",
+                  "key": "11"
+                }
+              ],
+              "\n  ",
+              [
+                "use",
+                {
+                  "xlinkHref": "#hn-c",
+                  "width": "100%",
+                  "height": "100%",
+                  "transform": "translate(-133.3 37.3)",
+                  "key": "13"
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

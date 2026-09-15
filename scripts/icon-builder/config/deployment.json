@@ -1,0 +1,7 @@
+{
+  "domain": "icones.go-slim.dev",
+  "compatibilityDate": "2026-09-15",
+  "maxFiles": 20000,
+  "maxFileBytes": 26214400,
+  "excludedCollections": {}
+}

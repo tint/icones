@@ -1,0 +1,43 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 512 512",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-es-ct",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#fcdd09",
+                  "d": "M0 0h512v512H0z",
+                  "key": "1"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "stroke": "#da121a",
+                  "strokeWidth": "60",
+                  "d": "M0 90h810m0 120H0m0 120h810m0 120H0",
+                  "transform": "scale(.6321 .94815)",
+                  "key": "3"
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

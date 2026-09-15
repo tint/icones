@@ -1,0 +1,30 @@
+{
+  "sets": [
+    {
+      "prefix": "tabler",
+      "icons": [
+        "refresh",
+        "heart",
+        "heart-filled",
+        "star",
+        "star-filled",
+        "search",
+        "search-filled"
+      ],
+      "categoryOverrides": {
+        "refresh": "arrows",
+        "heart": "shapes",
+        "heart-filled": "shapes",
+        "star": "shapes",
+        "star-filled": "shapes",
+        "search": "search",
+        "search-filled": "search"
+      }
+    },
+    {
+      "prefix": "hugeicons",
+      "icons": ["search-01"],
+      "categoryOverrides": { "search-01": "search" }
+    }
+  ]
+}

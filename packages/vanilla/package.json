@@ -1,0 +1,64 @@
+{
+  "name": "@icones/vanilla",
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://icones.go-slim.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tint/icones.git",
+    "directory": "packages/vanilla"
+  },
+  "bugs": {
+    "url": "https://github.com/tint/icones/issues"
+  },
+  "sideEffects": [
+    "./src/web-element.ts",
+    "./dist/web-element.js",
+    "./src/standard-element.ts",
+    "./dist/standard-element.js"
+  ],
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./web-element": {
+      "development": "./src/web-element.ts",
+      "types": "./dist/web-element.d.ts",
+      "import": "./dist/web-element.js",
+      "default": "./dist/web-element.js"
+    },
+    "./standard-element": {
+      "development": "./src/standard-element.ts",
+      "types": "./dist/standard-element.d.ts",
+      "import": "./dist/standard-element.js",
+      "default": "./dist/standard-element.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "play": "vite",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test tests"
+  },
+  "dependencies": {
+    "@icones/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@icones/vite": "workspace:*",
+    "vite": "^8.2.2",
+    "@types/bun": "^1.4.2",
+    "@types/jsdom": "^30.0.0",
+    "@types/node": "^24.13.3",
+    "jsdom": "^30.0.1",
+    "tsdown": "^0.22.5",
+    "typescript": "~6.0.2"
+  }
+}

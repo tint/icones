@@ -1,0 +1,72 @@
+[
+  [
+    "circle",
+    {
+      "fill": "none",
+      "cx": "12",
+      "cy": "12",
+      "r": "10",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "key": "1"
+    }
+  ],
+  [
+    "circle",
+    {
+      "fill": "none",
+      "cx": "12",
+      "cy": "12",
+      "r": "5",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "key": "3"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M7 12H2",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "key": "5"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M22 12H17",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "key": "7"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M12 17L12 22",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "9"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M12 2L12 7",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "11"
+    }
+  ]
+]

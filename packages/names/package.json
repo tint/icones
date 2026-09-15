@@ -1,0 +1,32 @@
+{
+  "name": "@icones/names",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "description": "Generated Icones icon name types, without artwork or runtime dependencies.",
+  "homepage": "https://icones.go-slim.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tint/icones.git",
+    "directory": "packages/names"
+  },
+  "bugs": {
+    "url": "https://github.com/tint/icones/issues"
+  },
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./index.js"
+    },
+    "./*": {
+      "types": "./types/*.d.ts",
+      "default": "./index.js"
+    }
+  },
+  "files": [
+    "types",
+    "index.js",
+    "README.md"
+  ]
+}

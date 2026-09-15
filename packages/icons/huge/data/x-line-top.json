@@ -1,0 +1,26 @@
+[
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M18 8L12 14M12 14L6 20M12 14L18 20M12 14L6 8",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "1"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M6 4H18",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "3"
+    }
+  ]
+]

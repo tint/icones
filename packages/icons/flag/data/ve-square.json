@@ -1,0 +1,215 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 512 512",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-ve",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "defs",
+                {
+                  "key": "1",
+                  "children": [
+                    "\n    ",
+                    [
+                      "g",
+                      {
+                        "id": "ve-d",
+                        "transform": "translate(0 -36)",
+                        "key": "1",
+                        "children": [
+                          "\n      ",
+                          [
+                            "g",
+                            {
+                              "id": "ve-c",
+                              "key": "1",
+                              "children": [
+                                "\n        ",
+                                [
+                                  "g",
+                                  {
+                                    "id": "ve-b",
+                                    "key": "1",
+                                    "children": [
+                                      "\n          ",
+                                      [
+                                        "path",
+                                        {
+                                          "id": "ve-a",
+                                          "fill": "#fff",
+                                          "d": "M0-5-1.5-.2l2.8.9z",
+                                          "key": "1"
+                                        }
+                                      ],
+                                      "\n          ",
+                                      [
+                                        "use",
+                                        {
+                                          "xlinkHref": "#ve-a",
+                                          "width": "180",
+                                          "height": "120",
+                                          "transform": "scale(-1 1)",
+                                          "key": "3"
+                                        }
+                                      ],
+                                      "\n        "
+                                    ]
+                                  }
+                                ],
+                                "\n        ",
+                                [
+                                  "use",
+                                  {
+                                    "xlinkHref": "#ve-b",
+                                    "width": "180",
+                                    "height": "120",
+                                    "transform": "rotate(72)",
+                                    "key": "3"
+                                  }
+                                ],
+                                "\n      "
+                              ]
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#ve-b",
+                              "width": "180",
+                              "height": "120",
+                              "transform": "rotate(-72)",
+                              "key": "3"
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#ve-c",
+                              "width": "180",
+                              "height": "120",
+                              "transform": "rotate(144)",
+                              "key": "5"
+                            }
+                          ],
+                          "\n    "
+                        ]
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#cf142b",
+                  "d": "M0 0h512v512H0z",
+                  "key": "3"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#00247d",
+                  "d": "M0 0h512v341.3H0z",
+                  "key": "5"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#fc0",
+                  "d": "M0 0h512v170.7H0z",
+                  "key": "7"
+                }
+              ],
+              "\n  ",
+              [
+                "g",
+                {
+                  "id": "ve-f",
+                  "transform": "translate(256.3 358.4)scale(4.265)",
+                  "key": "9",
+                  "children": [
+                    "\n    ",
+                    [
+                      "g",
+                      {
+                        "id": "ve-e",
+                        "key": "1",
+                        "children": [
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#ve-d",
+                              "width": "180",
+                              "height": "120",
+                              "transform": "rotate(10)",
+                              "key": "1"
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#ve-d",
+                              "width": "180",
+                              "height": "120",
+                              "transform": "rotate(30)",
+                              "key": "3"
+                            }
+                          ],
+                          "\n    "
+                        ]
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#ve-e",
+                        "width": "180",
+                        "height": "120",
+                        "transform": "rotate(40)",
+                        "key": "3"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n  ",
+              [
+                "use",
+                {
+                  "xlinkHref": "#ve-f",
+                  "width": "180",
+                  "height": "120",
+                  "transform": "rotate(-80 256.3 358.4)",
+                  "key": "11"
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

@@ -1,0 +1,61 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 640 480",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-ga",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "g",
+                {
+                  "fillRule": "evenodd",
+                  "key": "1",
+                  "children": [
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#ffe700",
+                        "d": "M640 480H0V0h640z",
+                        "key": "1"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#36a100",
+                        "d": "M640 160H0V0h640z",
+                        "key": "3"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#006dbc",
+                        "d": "M640 480H0V320h640z",
+                        "key": "5"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

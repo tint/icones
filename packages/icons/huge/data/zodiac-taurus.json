@@ -1,0 +1,25 @@
+[
+  [
+    "circle",
+    {
+      "fill": "none",
+      "cx": "12",
+      "cy": "15",
+      "r": "6",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "key": "1"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M18 3C18 6.31371 15.3137 9 12 9C8.68629 9 6 6.31371 6 3",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "key": "3"
+    }
+  ]
+]

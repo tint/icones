@@ -1,0 +1,302 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 640 480",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-nz",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "defs",
+                {
+                  "key": "1",
+                  "children": [
+                    "\n    ",
+                    [
+                      "g",
+                      {
+                        "id": "nz-b",
+                        "key": "1",
+                        "children": [
+                          "\n      ",
+                          [
+                            "g",
+                            {
+                              "id": "nz-a",
+                              "key": "1",
+                              "children": [
+                                "\n        ",
+                                [
+                                  "path",
+                                  {
+                                    "d": "M0-.3v.5l1-.5z",
+                                    "key": "1"
+                                  }
+                                ],
+                                "\n        ",
+                                [
+                                  "path",
+                                  {
+                                    "d": "M.2.3 0-.1l1-.2z",
+                                    "key": "3"
+                                  }
+                                ],
+                                "\n      "
+                              ]
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#nz-a",
+                              "transform": "scale(-1 1)",
+                              "key": "3"
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#nz-a",
+                              "transform": "rotate(72 0 0)",
+                              "key": "5"
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#nz-a",
+                              "transform": "rotate(-72 0 0)",
+                              "key": "7"
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#nz-a",
+                              "transform": "scale(-1 1)rotate(72)",
+                              "key": "9"
+                            }
+                          ],
+                          "\n    "
+                        ]
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#00247d",
+                  "fillRule": "evenodd",
+                  "d": "M0 0h640v480H0z",
+                  "key": "3"
+                }
+              ],
+              "\n  ",
+              [
+                "g",
+                {
+                  "transform": "translate(-111 36.1)scale(.66825)",
+                  "key": "5",
+                  "children": [
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#nz-b",
+                        "width": "100%",
+                        "height": "100%",
+                        "fill": "#fff",
+                        "transform": "translate(900 120)scale(45.4)",
+                        "key": "1"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#nz-b",
+                        "width": "100%",
+                        "height": "100%",
+                        "fill": "#cc142b",
+                        "transform": "matrix(30 0 0 30 900 120)",
+                        "key": "3"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n  ",
+              [
+                "g",
+                {
+                  "transform": "rotate(82 525.2 114.6)scale(.66825)",
+                  "key": "7",
+                  "children": [
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#nz-b",
+                        "width": "100%",
+                        "height": "100%",
+                        "fill": "#fff",
+                        "transform": "rotate(-82 519 -457.7)scale(40.4)",
+                        "key": "1"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#nz-b",
+                        "width": "100%",
+                        "height": "100%",
+                        "fill": "#cc142b",
+                        "transform": "rotate(-82 519 -457.7)scale(25)",
+                        "key": "3"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n  ",
+              [
+                "g",
+                {
+                  "transform": "rotate(82 525.2 114.6)scale(.66825)",
+                  "key": "9",
+                  "children": [
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#nz-b",
+                        "width": "100%",
+                        "height": "100%",
+                        "fill": "#fff",
+                        "transform": "rotate(-82 668.6 -327.7)scale(45.4)",
+                        "key": "1"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#nz-b",
+                        "width": "100%",
+                        "height": "100%",
+                        "fill": "#cc142b",
+                        "transform": "rotate(-82 668.6 -327.7)scale(30)",
+                        "key": "3"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n  ",
+              [
+                "g",
+                {
+                  "transform": "translate(-111 36.1)scale(.66825)",
+                  "key": "11",
+                  "children": [
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#nz-b",
+                        "width": "100%",
+                        "height": "100%",
+                        "fill": "#fff",
+                        "transform": "translate(900 480)scale(50.4)",
+                        "key": "1"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#nz-b",
+                        "width": "100%",
+                        "height": "100%",
+                        "fill": "#cc142b",
+                        "transform": "matrix(35 0 0 35 900 480)",
+                        "key": "3"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#012169",
+                  "d": "M0 0h320v240H0z",
+                  "key": "13"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#fff",
+                  "d": "m37.5 0 122 90.5L281 0h39v31l-120 89.5 120 89V240h-40l-120-89.5L40.5 240H0v-30l119.5-89L0 32V0z",
+                  "key": "15"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#c8102e",
+                  "d": "M212 140.5 320 220v20l-135.5-99.5zm-92 10 3 17.5-96 72H0zM320 0v1.5l-124.5 94 1-22L295 0zM0 0l119.5 88h-30L0 21z",
+                  "key": "17"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#fff",
+                  "d": "M120.5 0v240h80V0zM0 80v80h320V80z",
+                  "key": "19"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#c8102e",
+                  "d": "M0 96.5v48h320v-48zM136.5 0v240h48V0z",
+                  "key": "21"
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

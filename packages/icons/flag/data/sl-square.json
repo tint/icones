@@ -1,0 +1,95 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 512 512",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-sl",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "defs",
+                {
+                  "key": "1",
+                  "children": [
+                    "\n    ",
+                    [
+                      "clipPath",
+                      {
+                        "id": "sl-a",
+                        "key": "1",
+                        "children": [
+                          "\n      ",
+                          [
+                            "rect",
+                            {
+                              "width": "384",
+                              "height": "512",
+                              "rx": "4.6",
+                              "ry": "7.6",
+                              "key": "1"
+                            }
+                          ],
+                          "\n    "
+                        ]
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n  ",
+              [
+                "g",
+                {
+                  "fillRule": "evenodd",
+                  "clipPath": "url(#sl-a)",
+                  "transform": "scale(1.33333 1)",
+                  "key": "3",
+                  "children": [
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#0000cd",
+                        "d": "M0 341.7h512V512H0z",
+                        "key": "1"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#fff",
+                        "d": "M0 171.4h512v170.3H0z",
+                        "key": "3"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#00cd00",
+                        "d": "M0 0h512v171.4H0z",
+                        "key": "5"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

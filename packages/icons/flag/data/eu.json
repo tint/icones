@@ -1,0 +1,231 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 640 480",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-eu",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "defs",
+                {
+                  "key": "1",
+                  "children": [
+                    "\n    ",
+                    [
+                      "g",
+                      {
+                        "id": "eu-d",
+                        "key": "1",
+                        "children": [
+                          "\n      ",
+                          [
+                            "g",
+                            {
+                              "id": "eu-b",
+                              "key": "1",
+                              "children": [
+                                "\n        ",
+                                [
+                                  "path",
+                                  {
+                                    "id": "eu-a",
+                                    "d": "m0-1-.3 1 .5.1z",
+                                    "key": "1"
+                                  }
+                                ],
+                                "\n        ",
+                                [
+                                  "use",
+                                  {
+                                    "xlinkHref": "#eu-a",
+                                    "transform": "scale(-1 1)",
+                                    "key": "3"
+                                  }
+                                ],
+                                "\n      "
+                              ]
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "g",
+                            {
+                              "id": "eu-c",
+                              "key": "3",
+                              "children": [
+                                "\n        ",
+                                [
+                                  "use",
+                                  {
+                                    "xlinkHref": "#eu-b",
+                                    "transform": "rotate(72)",
+                                    "key": "1"
+                                  }
+                                ],
+                                "\n        ",
+                                [
+                                  "use",
+                                  {
+                                    "xlinkHref": "#eu-b",
+                                    "transform": "rotate(144)",
+                                    "key": "3"
+                                  }
+                                ],
+                                "\n      "
+                              ]
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#eu-c",
+                              "transform": "scale(-1 1)",
+                              "key": "5"
+                            }
+                          ],
+                          "\n    "
+                        ]
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#039",
+                  "d": "M0 0h640v480H0z",
+                  "key": "3"
+                }
+              ],
+              "\n  ",
+              [
+                "g",
+                {
+                  "fill": "#fc0",
+                  "transform": "translate(320 242.3)scale(23.7037)",
+                  "key": "5",
+                  "children": [
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#eu-d",
+                        "width": "100%",
+                        "height": "100%",
+                        "y": "-6",
+                        "key": "1"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#eu-d",
+                        "width": "100%",
+                        "height": "100%",
+                        "y": "6",
+                        "key": "3"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "g",
+                      {
+                        "id": "eu-e",
+                        "key": "5",
+                        "children": [
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#eu-d",
+                              "width": "100%",
+                              "height": "100%",
+                              "x": "-6",
+                              "key": "1"
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#eu-d",
+                              "width": "100%",
+                              "height": "100%",
+                              "transform": "rotate(-144 -2.3 -2.1)",
+                              "key": "3"
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#eu-d",
+                              "width": "100%",
+                              "height": "100%",
+                              "transform": "rotate(144 -2.1 -2.3)",
+                              "key": "5"
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#eu-d",
+                              "width": "100%",
+                              "height": "100%",
+                              "transform": "rotate(72 -4.7 -2)",
+                              "key": "7"
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#eu-d",
+                              "width": "100%",
+                              "height": "100%",
+                              "transform": "rotate(72 -5 .5)",
+                              "key": "9"
+                            }
+                          ],
+                          "\n    "
+                        ]
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#eu-e",
+                        "width": "100%",
+                        "height": "100%",
+                        "transform": "scale(-1 1)",
+                        "key": "7"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

@@ -1,0 +1,14 @@
+[
+  [
+    "polygon",
+    {
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": "2",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "points": "3 11 22 2 13 21 11 13 3 11",
+      "key": "1"
+    }
+  ]
+]

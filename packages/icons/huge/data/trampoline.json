@@ -1,0 +1,52 @@
+[
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M2 10V18",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "1"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M12 16L12 20",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "3"
+    }
+  ],
+  [
+    "path",
+    {
+      "fill": "none",
+      "d": "M22 10V18",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "5"
+    }
+  ],
+  [
+    "ellipse",
+    {
+      "fill": "none",
+      "cx": "12",
+      "cy": "10",
+      "rx": "10",
+      "ry": "6",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinejoin": "round",
+      "key": "7"
+    }
+  ]
+]

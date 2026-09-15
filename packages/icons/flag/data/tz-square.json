@@ -1,0 +1,113 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 512 512",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-tz",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "defs",
+                {
+                  "key": "1",
+                  "children": [
+                    "\n    ",
+                    [
+                      "clipPath",
+                      {
+                        "id": "tz-a",
+                        "key": "1",
+                        "children": [
+                          "\n      ",
+                          [
+                            "path",
+                            {
+                              "fillOpacity": ".7",
+                              "d": "M102.9 0h496v496H103z",
+                              "key": "1"
+                            }
+                          ],
+                          "\n    "
+                        ]
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n  ",
+              [
+                "g",
+                {
+                  "clipPath": "url(#tz-a)",
+                  "transform": "translate(-106.2)scale(1.0321)",
+                  "key": "3",
+                  "children": [
+                    "\n    ",
+                    [
+                      "g",
+                      {
+                        "fillRule": "evenodd",
+                        "strokeWidth": "1pt",
+                        "key": "1",
+                        "children": [
+                          "\n      ",
+                          [
+                            "path",
+                            {
+                              "fill": "#09f",
+                              "d": "M0 0h744.1v496H0z",
+                              "key": "1"
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "path",
+                            {
+                              "fill": "#090",
+                              "d": "M0 0h744.1L0 496z",
+                              "key": "3"
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "path",
+                            {
+                              "fill": "#000001",
+                              "d": "M0 496h165.4L744 103.4V0H578.7L0 392.7v103.4z",
+                              "key": "5"
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "path",
+                            {
+                              "fill": "#ff0",
+                              "d": "M0 378 567 0h56L0 415.3v-37.2zm121.1 118 623-415.3V118L177 496z",
+                              "key": "7"
+                            }
+                          ],
+                          "\n    "
+                        ]
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

@@ -1,0 +1,50 @@
+---
+import {
+  createIconController,
+  createIconScope,
+  iconOptionKeys,
+  iconStyleText,
+  renderIcon,
+} from "@icones/core"
+import type { IconProps } from "./types"
+
+type Props = IconProps
+// Astro receives server-rendered props; we split icon options from passthrough attrs.
+const { scope: parent, config, fallback, style, ...props } = Astro.props
+// Resolve scope with optional local config overriding inherited parent scope.
+const scope = config
+  ? createIconScope(config, parent)
+  : parent ?? createIconScope()
+const controller = createIconController(props, scope)
+try {
+  // Preload icon data in SSR so the output chooses SVG or fallback deterministically.
+  await controller.load()
+} catch {
+  // The state carries the load error; render fallback.
+}
+// Generate one render result with a request-unique id.
+const result = renderIcon(
+  controller.getState(),
+  props,
+  scope.appearance,
+  crypto.randomUUID(),
+)
+controller.destroy()
+// Filter icon-specific keys so only real attributes land on <svg>.
+const attributes = Object.fromEntries(Object.entries(props).filter(([key]) =>
+  !(iconOptionKeys as readonly string[]).includes(key)
+))
+// Merge engine style tokens with user-provided style (string or object form).
+const combinedStyle = typeof style === "string"
+  ? iconStyleText(result.style) + ";" + style
+  : { ...result.style, ...style }
+---
+
+{result.available || fallback === undefined ? (
+  <svg
+    {...attributes}
+    {...result.attributes}
+    style={combinedStyle}
+    set:html={result.body}
+  />
+) : fallback}

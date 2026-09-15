@@ -1,0 +1,67 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 512 512",
+      "children": [
+        [
+          "mask",
+          {
+            "fill": "#000",
+            "strokeWidth": "1",
+            "id": "a",
+            "key": "0",
+            "children": [
+              [
+                "circle",
+                {
+                  "cx": "256",
+                  "cy": "256",
+                  "r": "256",
+                  "fill": "#fff",
+                  "key": "0"
+                }
+              ]
+            ]
+          }
+        ],
+        [
+          "g",
+          {
+            "fill": "#000",
+            "strokeWidth": "1",
+            "mask": "url(#a)",
+            "key": "1",
+            "children": [
+              [
+                "path",
+                {
+                  "fill": "#0052b4",
+                  "d": "M512 170v172l-256 32L0 342V170l256-32z",
+                  "key": "0"
+                }
+              ],
+              [
+                "path",
+                {
+                  "fill": "#eee",
+                  "d": "M512 0v170H0V0Z",
+                  "key": "1"
+                }
+              ],
+              [
+                "path",
+                {
+                  "fill": "#d80027",
+                  "d": "M512 342v170H0V342Z",
+                  "key": "2"
+                }
+              ]
+            ]
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

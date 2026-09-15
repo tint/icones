@@ -1,0 +1,105 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 512 512",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-mm",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#fecb00",
+                  "d": "M0 0h512v512H0z",
+                  "key": "1"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#34b233",
+                  "d": "M0 170.7h512V512H0z",
+                  "key": "3"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#ea2839",
+                  "d": "M0 341.3h512V512H0z",
+                  "key": "5"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "id": "mm-a",
+                  "fill": "#fff",
+                  "strokeWidth": "188.7",
+                  "d": "M312.6 274H199.4L256 85.3Z",
+                  "key": "7"
+                }
+              ],
+              "\n  ",
+              [
+                "use",
+                {
+                  "xlinkHref": "#mm-a",
+                  "width": "100%",
+                  "height": "100%",
+                  "transform": "rotate(-144 256 274)",
+                  "key": "9"
+                }
+              ],
+              "\n  ",
+              [
+                "use",
+                {
+                  "xlinkHref": "#mm-a",
+                  "width": "100%",
+                  "height": "100%",
+                  "transform": "rotate(-72 256 274)",
+                  "key": "11"
+                }
+              ],
+              "\n  ",
+              [
+                "use",
+                {
+                  "xlinkHref": "#mm-a",
+                  "width": "100%",
+                  "height": "100%",
+                  "transform": "rotate(72 256 274)",
+                  "key": "13"
+                }
+              ],
+              "\n  ",
+              [
+                "use",
+                {
+                  "xlinkHref": "#mm-a",
+                  "width": "100%",
+                  "height": "100%",
+                  "transform": "rotate(144 256 274)",
+                  "key": "15"
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

@@ -1,0 +1,151 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 512 512",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-gr",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#0d5eaf",
+                  "fillRule": "evenodd",
+                  "d": "M0 0h512v57H0z",
+                  "key": "1"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#fff",
+                  "fillRule": "evenodd",
+                  "d": "M0 57h512v57H0z",
+                  "key": "3"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#0d5eaf",
+                  "fillRule": "evenodd",
+                  "d": "M0 114h512v57H0z",
+                  "key": "5"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#fff",
+                  "fillRule": "evenodd",
+                  "d": "M0 171h512v57H0z",
+                  "key": "7"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#0d5eaf",
+                  "fillRule": "evenodd",
+                  "d": "M0 228h512v56.9H0z",
+                  "key": "9"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#fff",
+                  "fillRule": "evenodd",
+                  "d": "M0 284.9h512v57H0z",
+                  "key": "11"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#0d5eaf",
+                  "fillRule": "evenodd",
+                  "d": "M0 341.9h512v57H0z",
+                  "key": "13"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#fff",
+                  "fillRule": "evenodd",
+                  "d": "M0 398.9h512v57H0z",
+                  "key": "15"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#0d5eaf",
+                  "d": "M0 0h284.9v284.9H0z",
+                  "key": "17"
+                }
+              ],
+              "\n  ",
+              [
+                "g",
+                {
+                  "fill": "#fff",
+                  "fillRule": "evenodd",
+                  "strokeWidth": "1.3",
+                  "key": "19",
+                  "children": [
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "d": "M114 0h57v284.9h-57z",
+                        "key": "1"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "d": "M0 114h284.9v57H0z",
+                        "key": "3"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#0d5eaf",
+                  "fillRule": "evenodd",
+                  "d": "M0 455h512v57H0z",
+                  "key": "21"
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "types": ["bun", "node", "react", "vite/client"],
+    "noUnusedLocals": false
+  },
+  "include": ["tests/**/*.ts", "tests/**/*.tsx"],
+  "exclude": ["tests/types"]
+}

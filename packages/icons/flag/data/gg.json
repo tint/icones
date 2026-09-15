@@ -1,0 +1,93 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 640 480",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-gg",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#fff",
+                  "d": "M0 0h640v480H0z",
+                  "key": "1"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#e8112d",
+                  "d": "M256 0h128v480H256z",
+                  "key": "3"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#e8112d",
+                  "d": "M0 176h640v128H0z",
+                  "key": "5"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "id": "gg-a",
+                  "fill": "#f9dd16",
+                  "d": "m110 286.7 23.3-23.4h210v-46.6h-210L110 193.3z",
+                  "key": "7"
+                }
+              ],
+              "\n  ",
+              [
+                "use",
+                {
+                  "xlinkHref": "#gg-a",
+                  "width": "36",
+                  "height": "24",
+                  "transform": "rotate(90 320 240)",
+                  "key": "9"
+                }
+              ],
+              "\n  ",
+              [
+                "use",
+                {
+                  "xlinkHref": "#gg-a",
+                  "width": "36",
+                  "height": "24",
+                  "transform": "rotate(-90 320 240)",
+                  "key": "11"
+                }
+              ],
+              "\n  ",
+              [
+                "use",
+                {
+                  "xlinkHref": "#gg-a",
+                  "width": "36",
+                  "height": "24",
+                  "transform": "rotate(180 320 240)",
+                  "key": "13"
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

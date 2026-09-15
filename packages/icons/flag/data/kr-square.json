@@ -1,0 +1,145 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 512 512",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-kr",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#fff",
+                  "fillRule": "evenodd",
+                  "d": "M0 0h512v512H0Z",
+                  "key": "1"
+                }
+              ],
+              "\n  ",
+              [
+                "g",
+                {
+                  "fillRule": "evenodd",
+                  "transform": "rotate(-56.3 367.2 -111.2)scale(9.375)",
+                  "key": "3",
+                  "children": [
+                    "\n    ",
+                    [
+                      "g",
+                      {
+                        "id": "kr-b",
+                        "key": "1",
+                        "children": [
+                          "\n      ",
+                          [
+                            "path",
+                            {
+                              "id": "kr-a",
+                              "fill": "#000001",
+                              "d": "M-6-26H6v2H-6Zm0 3H6v2H-6Zm0 3H6v2H-6Z",
+                              "key": "1"
+                            }
+                          ],
+                          "\n      ",
+                          [
+                            "use",
+                            {
+                              "xlinkHref": "#kr-a",
+                              "width": "100%",
+                              "height": "100%",
+                              "y": "44",
+                              "key": "3"
+                            }
+                          ],
+                          "\n    "
+                        ]
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "stroke": "#fff",
+                        "d": "M0 17v10",
+                        "key": "3"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#cd2e3a",
+                        "d": "M0-12a12 12 0 0 1 0 24Z",
+                        "key": "5"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "fill": "#0047a0",
+                        "d": "M0-12a12 12 0 0 0 0 24A6 6 0 0 0 0 0Z",
+                        "key": "7"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "circle",
+                      {
+                        "cy": "-6",
+                        "r": "6",
+                        "fill": "#cd2e3a",
+                        "key": "9"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n  ",
+              [
+                "g",
+                {
+                  "fillRule": "evenodd",
+                  "transform": "rotate(-123.7 196.5 59.5)scale(9.375)",
+                  "key": "5",
+                  "children": [
+                    "\n    ",
+                    [
+                      "use",
+                      {
+                        "xlinkHref": "#kr-b",
+                        "width": "100%",
+                        "height": "100%",
+                        "key": "1"
+                      }
+                    ],
+                    "\n    ",
+                    [
+                      "path",
+                      {
+                        "stroke": "#fff",
+                        "d": "M0-23.5v3M0 17v3.5m0 3v3",
+                        "key": "3"
+                      }
+                    ],
+                    "\n  "
+                  ]
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

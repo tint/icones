@@ -1,0 +1,17 @@
+[
+  [
+    "ellipse",
+    {
+      "fill": "none",
+      "cx": "12",
+      "cy": "12",
+      "rx": "10",
+      "ry": "7",
+      "stroke": "currentColor",
+      "strokeWidth": "1.5",
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "key": "1"
+    }
+  ]
+]

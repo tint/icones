@@ -1,0 +1,43 @@
+[
+  [
+    "svg",
+    {
+      "viewBox": "0 0 512 512",
+      "children": [
+        [
+          "g",
+          {
+            "id": "flag-icons-gb-sct",
+            "fill": "#000",
+            "strokeWidth": "1",
+            "children": [
+              "\n  ",
+              [
+                "path",
+                {
+                  "fill": "#0065bd",
+                  "d": "M0 0h512v512H0z",
+                  "key": "1"
+                }
+              ],
+              "\n  ",
+              [
+                "path",
+                {
+                  "stroke": "#fff",
+                  "strokeWidth": ".6",
+                  "d": "m0 0 5 3M0 3l5-3",
+                  "transform": "scale(102.4 170.66667)",
+                  "key": "3"
+                }
+              ],
+              "\n"
+            ],
+            "key": "0"
+          }
+        ]
+      ],
+      "key": "0"
+    }
+  ]
+]

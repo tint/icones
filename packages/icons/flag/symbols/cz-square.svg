@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="icon" viewBox="0 0 512 512"><g id="remote-flag-icons-cz" fill="#000" stroke-width="var(--icones-stroke-width, 1)">
+  <path fill="#fff" d="M0 0h512v256H0z"/>
+  <path fill="#d7141a" d="M0 256h512v256H0z"/>
+  <path fill="#11457e" d="M300 256 0 56v400z"/>
+</g></symbol></defs></svg>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>@icones/vanilla</title>
+  </head>
+  <body>
+    <main>
+      <h1>@icones/vanilla</h1>
+      <p>声明式 HTML 图标，属性变化自动更新</p>
+      <icones-icon
+        id="icons"
+        name="tabler:star"
+        alt-name="tabler:heart"
+        size="xl"
+        stroke-width="2"
+        label="收藏"
+      ></icones-icon>
+      <i
+        id="standard-icons"
+        icon-name="tabler:star"
+        icon-alt-name="tabler:heart"
+        icon-size="xl"
+        icon-stroke-width="2"
+        icon-label="收藏"
+      ></i>
+      <button id="toggle">切换图标</button>
+    </main>
+    <script type="module" src="/src/index.ts"></script>
+  </body>
+</html>
