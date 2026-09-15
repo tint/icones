@@ -1,6 +1,6 @@
 {
   "name": "@icones/core",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "sideEffects": false,
   "homepage": "https://icones.go-slim.dev",
@@ -181,7 +181,7 @@
     "typecheck:tests": "tsc -p tsconfig.tests.json"
   },
   "dependencies": {
-    "@icones/names": "workspace:*"
+    "@icones/names": "workspace:^"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",

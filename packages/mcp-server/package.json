@@ -1,6 +1,6 @@
 {
   "name": "@icones/mcp-server",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Read-only stdio MCP tools for local icons and bundled framework guides.",
   "type": "module",
   "sideEffects": false,
@@ -43,8 +43,8 @@
     "typecheck:tests": "tsc -p tsconfig.tests.json"
   },
   "dependencies": {
-    "@icones/core": "workspace:*",
-    "@icones/icons": "workspace:*",
+    "@icones/core": "workspace:^",
+    "@icones/icons": "workspace:^",
     "@modelcontextprotocol/server": "^2.0.0",
     "zod": "^4.6.1"
   },

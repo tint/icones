@@ -1,6 +1,6 @@
 {
   "name": "@icones/svelte",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "sideEffects": false,
   "homepage": "https://icones.go-slim.dev",
@@ -31,7 +31,7 @@
     "typecheck": "svelte-check --tsconfig tsconfig.json"
   },
   "dependencies": {
-    "@icones/core": "workspace:*"
+    "@icones/core": "workspace:^"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",
@@ -44,7 +44,7 @@
     "svelte-check": "^4.7.2",
     "vite": "^8.2.2",
     "vitest": "^4.1.10",
-    "@icones/vite": "workspace:*"
+    "@icones/vite": "workspace:^"
   },
   "peerDependencies": {
     "svelte": "^5.20.0"

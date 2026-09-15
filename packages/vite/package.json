@@ -1,6 +1,6 @@
 {
   "name": "@icones/vite",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "sideEffects": false,
   "homepage": "https://icones.go-slim.dev",
@@ -71,8 +71,8 @@
     "typecheck:tests": "tsc -p tsconfig.tests.json && tsc -p tsconfig.test-types.json"
   },
   "dependencies": {
-    "@icones/core": "workspace:*",
-    "@icones/icons": "workspace:*",
+    "@icones/core": "workspace:^",
+    "@icones/icons": "workspace:^",
     "@iconify/types": "^2.0.0",
     "@iconify/utils": "^3.1.7",
     "parse5": "^8.0.1",
@@ -93,7 +93,7 @@
     "@types/react-dom": "^19.2.4",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "@icones/react": "workspace:*",
-    "@icones/vanilla": "workspace:*"
+    "@icones/react": "workspace:^",
+    "@icones/vanilla": "workspace:^"
   }
 }

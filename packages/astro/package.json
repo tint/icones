@@ -1,6 +1,6 @@
 {
   "name": "@icones/astro",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "sideEffects": false,
   "homepage": "https://icones.go-slim.dev",
@@ -32,7 +32,7 @@
     "test": "astro build --root playground && bun tests/verify.ts && ICONES_TEST_MODE=symbol astro build --root playground && ICONES_TEST_MODE=symbol bun tests/verify.ts"
   },
   "dependencies": {
-    "@icones/core": "workspace:*"
+    "@icones/core": "workspace:^"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",
@@ -40,7 +40,7 @@
     "typescript": "~6.0.2",
     "astro": "^7.3.2",
     "@astrojs/check": "^0.9.10",
-    "@icones/vite": "workspace:*"
+    "@icones/vite": "workspace:^"
   },
   "peerDependencies": {
     "astro": "^7.0.0"
