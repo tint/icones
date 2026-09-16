@@ -189,7 +189,7 @@ test("color explains SVG paint behavior and compares real Outline, Filled and So
   }
 })
 
-test("rendering guide covers collection support, source priority and both Vite modes", () => {
+test("rendering guide covers collection support, source priority and all Vite modes", () => {
   for (const framework of guideVariants) {
     const article = getGuideArticle(
       "rendering",
@@ -216,6 +216,7 @@ test("rendering guide covers collection support, source priority and both Vite m
       "Flag",
     ])
     expect(sections["vite-modes"]!.table!.rows.map((row) => row[0])).toEqual([
+      'mode: "sprite" (default)',
       'mode: "svg"',
       'mode: "symbol"',
       'api: { type: "fetch" }',
@@ -224,6 +225,8 @@ test("rendering guide covers collection support, source priority and both Vite m
     expect(
       sections["api-types"]!.table!.rows.map((row) => row.slice(0, 2))
     ).toEqual([
+      ["sprite", "fetch"],
+      ["sprite", "symbol"],
       ["svg", "fetch"],
       ["svg", "symbol"],
       ["symbol", "fetch"],
@@ -253,7 +256,7 @@ test("rendering guide covers collection support, source priority and both Vite m
     expect(propRows["CSS path selectors"]![1]).toStartWith("No.")
     const config = sections["vite-modes"]!.examples![0]!
     expect(config.filename).toBe("vite.config.ts")
-    expect(config.code).toContain('mode: "svg"')
+    expect(config.code).toContain('mode: "sprite"')
     expect(config.code).toContain("emitData: false")
     expect(config.code).toContain("fallbackToApi: false")
     expect(config.code).not.toContain('mode: "inline"')

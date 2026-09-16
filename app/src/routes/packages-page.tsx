@@ -70,9 +70,9 @@ const packages = [
     name: "Vite",
     kind: "Build integration",
     description:
-      "Collect static names and emit inline SVG or individual symbols.",
+      "Collect static names into an auto-chunked SVG sprite by default, with inline and per-icon output options.",
     filename: "vite.config.ts",
-    code: 'import { defineConfig } from "vite"\nimport { icones } from "@icones/vite"\n\nexport default defineConfig({\n  plugins: [icones({\n    mode: "symbol",\n    dataDir: "./icons",\n    emitData: false,\n    fallbackToApi: false,\n  })],\n})',
+    code: 'import { defineConfig } from "vite"\nimport { icones } from "@icones/vite"\n\nexport default defineConfig({\n  plugins: [icones({\n    mode: "sprite",\n    dataDir: "./icons",\n    emitData: false,\n    fallbackToApi: false,\n  })],\n})',
   },
   {
     id: "mcp-server",

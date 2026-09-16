@@ -10,7 +10,7 @@ export const article: GuideArticle = {
       title: "Two rendering results: data or symbol",
       paragraphs: [
         "Both paths render an SVG element. The difference is what is inside it: data renders the actual paths in the page; symbol renders a use element that references an external SVG file. Symbol is not an image tag, and it does not mean all appearance props are disabled.",
-        'Here, data means inline rendering, not only the data prop. It can come from data/altData, local sources, a fetch API, or Vite mode: "svg". A symbol reference can come from Vite mode: "symbol" or api.type: "symbol".',
+        'Here, data means inline rendering, not only the data prop. It can come from data/altData, local sources, a fetch API, or Vite mode: "svg". A symbol reference can come from Vite mode: "sprite" or "symbol", or api.type: "symbol".',
         "These simplified output shapes show the distinction; the real renderer also supplies sizing, stroke configuration, accessibility and transforms.",
       ],
       examples: [
@@ -53,7 +53,7 @@ export const article: GuideArticle = {
       ],
       bullets: [
         "Direct data or altData: render inline without a name lookup. Do not add a name just to associate anonymous data with a collection.",
-        "A name already registered by a loaded Vite-generated module: use that compiled svg or symbol representation. This also applies when a dynamic value happens to match the registered name.",
+        "A name already registered by a loaded Vite-generated module: use that compiled svg, Sprite or per-icon symbol representation. This also applies when a dynamic value happens to match the registered name.",
         "Other names: resolve through the icon’s store, local sources and configured API. A fetch API returns data to render inline; a symbol API supplies an external reference. These runtime API choices are separate from Vite mode.",
         "An explicit per-icon loader bypasses compiled-name resolution. Local sources can still resolve the name before that loader; supplying a loader does not stop Vite from collecting a literal name at build time.",
       ],

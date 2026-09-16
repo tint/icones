@@ -53,7 +53,7 @@ https://tabler.icones.go-slim.dev/data/star.json
 
 ## Vite 静态收集
 
-`@icones/vite` 会识别各框架组件和 Vanilla API 中的静态图标名称，并按配置将图标内联或输出为独立 symbol：
+`@icones/vite` 会识别各框架组件和 Vanilla API 中的静态图标名称，默认将所有已收集图标合并为可自动分块的 SVG Sprite：
 
 ```sh
 npm install --save-dev @icones/vite
@@ -65,11 +65,11 @@ import { defineConfig } from "vite"
 import { icones } from "@icones/vite"
 
 export default defineConfig({
-  plugins: [react(), icones({ mode: "svg" })],
+  plugins: [react(), icones()],
 })
 ```
 
-静态资源按 `dataDir` → `@icones/icons` → `icons` / `iconSets` → `loadIcon` 或构建期 API 的顺序查找。`mode: "svg"` 将图标数据内联；`mode: "symbol"` 输出独立 SVG。动态表达式不会打包完整图标库，仍由运行时加载器处理。`emitData` 可以控制是否额外输出本地或已收集的 JSON。
+静态资源按 `dataDir` → `@icones/icons` → `icons` / `iconSets` → `loadIcon` 或构建期 API 的顺序查找。默认的 `mode: "sprite"` 输出 `<assetsDir>/sprite.svg`，超过 256 KiB 时自动拆分为 `sprite-1.svg`、`sprite-2.svg` 等文件；可通过 `spriteMaxBytes` 调整上限。设置 `spriteGroupBy: "set"` 可改为按图标集输出 `<assetsDir>/<set>/sprite.svg`，超限时在各图标集内继续分块。`mode: "symbol"` 为每个图标输出独立 SVG；`mode: "svg"` 将图标数据写入 JavaScript 并内联渲染。动态表达式默认由运行时加载器处理；已知的完整集合可通过 `import("virtual:icones/set/tabler")` 显式懒加载并注册到 Sprite。`emitData` 可以控制是否额外输出本地或已收集的 JSON。
 
 完整配置见 [`@icones/vite`](packages/vite/README.md)。
 

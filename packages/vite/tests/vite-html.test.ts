@@ -87,7 +87,7 @@ for (const prefix of ["", "UI-", "ui", "ui--", "ui] , span[", "ui:"])
     }
   )
 
-for (const mode of ["svg", "symbol"] as const)
+for (const mode of ["svg", "symbol", "sprite"] as const)
   for (const entry of [
     "web-element",
     "standard-element",
@@ -156,7 +156,7 @@ for (const mode of ["svg", "symbol"] as const)
             (output) =>
               output.type === "asset" && output.fileName.endsWith(".svg")
           )
-        ).toHaveLength(mode === "symbol" ? 2 : 0)
+        ).toHaveLength(mode === "symbol" ? 2 : mode === "sprite" ? 1 : 0)
         const dom = new JSDOM(
           markup(await readFile(root + "/index.html", "utf8")),
           {
@@ -217,6 +217,10 @@ for (const mode of ["svg", "symbol"] as const)
               expect(
                 svg.querySelector("use")!.getAttribute("href")
               ).toStartWith("/nested/icons/tabler/symbols/")
+            else if (mode === "sprite")
+              expect(
+                svg.querySelector("use")!.getAttribute("href")
+              ).toStartWith("/nested/icons/sprite.svg#")
             else expect(svg.querySelector("path")).not.toBeNull()
             host.setAttribute(prefix + "show-alt", "true")
             await new Promise((resolve) => setTimeout(resolve, 0))

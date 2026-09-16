@@ -200,8 +200,8 @@ export function getGuideArticle(
         : ["// Keep your existing framework plugin here."],
     code:
       framework === "astro"
-        ? 'import { defineConfig } from "astro/config"\nimport { icones } from "@icones/vite"\n\nexport default defineConfig({\n  vite: {\n    plugins: [icones({\n      mode: "symbol",\n      dataDir: "./icons",\n      emitData: false,\n    })],\n  },\n})'
-        : 'import { defineConfig } from "vite"\nimport { icones } from "@icones/vite"\n\nexport default defineConfig({\n  plugins: [\n    // Keep your existing framework plugin here.\n    icones({\n      mode: "symbol",\n      dataDir: "./icons",\n      emitData: false,\n    }),\n  ],\n})',
+        ? 'import { defineConfig } from "astro/config"\nimport { icones } from "@icones/vite"\n\nexport default defineConfig({\n  vite: {\n    plugins: [icones({\n      mode: "sprite",\n      dataDir: "./icons",\n      emitData: false,\n    })],\n  },\n})'
+        : 'import { defineConfig } from "vite"\nimport { icones } from "@icones/vite"\n\nexport default defineConfig({\n  plugins: [\n    // Keep your existing framework plugin here.\n    icones({\n      mode: "sprite",\n      dataDir: "./icons",\n      emitData: false,\n    }),\n  ],\n})',
   }
   switch (page) {
     case "icon-config":
@@ -581,7 +581,7 @@ export function getGuideArticle(
                 : "Filled artwork does not gain an outline just because strokeWidth is set. The configured width takes priority over the source width.",
               "Multicolor artwork with fixed stroke colors is excluded from automatic path stroke rewriting.",
               "An Outline label does not guarantee editable strokes: bootstrap:star is a filled path. Phosphor Regular uses strokes that respond to strokeWidth, while Phosphor Fill uses filled shapes that keep their geometry.",
-              'Omitting strokeWidth still uses the shared default of 1.5, in both svg and symbol modes. Component props accept a numeric width; there is no cross-framework strokeWidth="original" value. Set an explicit weight when you need a thinner or bolder drawing.',
+              'Omitting strokeWidth still uses the shared default of 1.5 in every Vite mode. Component props accept a numeric width; there is no cross-framework strokeWidth="original" value. Set an explicit weight when you need a thinner or bolder drawing.',
             ],
             links: [
               {

@@ -5,5 +5,5 @@
     "noUnusedLocals": false,
     "rootDirs": [".", "./.react-router/types"]
   },
-  "include": ["tests/**/*.ts", "tests/**/*.tsx"]
+  "include": ["src/vite-env.d.ts", "tests/**/*.ts", "tests/**/*.tsx"]
 }

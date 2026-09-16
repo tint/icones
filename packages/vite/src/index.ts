@@ -32,9 +32,14 @@ import { updateCollectionManifest as updateIconManifest } from "./tooling/collec
 import { createIconSymbolDocument } from "./tooling/symbol.ts"
 import { createIconDataHandler } from "./server/handler.ts"
 
-export type Mode = "svg" | "symbol"
+export type Mode = "svg" | "symbol" | "sprite"
 export type Options = {
+  /** Build rendering mode. Defaults to an auto-chunked external SVG sprite. */
   mode?: Mode
+  /** Sprite grouping. "all" combines sets; "set" creates one group per icon set. */
+  spriteGroupBy?: "all" | "set"
+  /** Maximum raw bytes per build sprite. Defaults to 256 KiB; false disables chunking. */
+  spriteMaxBytes?: number | false
   /** First lookup: <dataDir>/<set>/data/<icon>.json (default: icons/). Missing names fall back to @icones/icons. */
   dataDir?: string
   /** Legacy layout override. New collections keep SVGs in <set>/symbols/. */
@@ -77,14 +82,37 @@ export type IconifyPluginOptions = IconesPluginOptions
 // Virtual module namespace for runtime glue and per-icon static registration.
 const runtimeId = "virtual:icones"
 const iconId = runtimeId + "/icon/"
+const setId = runtimeId + "/set/"
 const pluginImporter = fileURLToPath(import.meta.url)
 type RecordData = { record: IconRecord; repository: IconRepository }
 type Asset = { fileName: string; source: string }
+type GeneratedSymbol = {
+  name: string
+  set: string
+  id: string
+  viewBox: string
+  body: string
+}
+type SpriteChunk = Asset & { names: readonly string[] }
+
+const defaultSpriteMaxBytes = 256 * 1024
+const spritePlaceholderPrefix = "__ICONES_SPRITE_ASSET_"
 
 /** Collect literal Icon references, leaving computed names to the runtime API. */
 export function icones(options: Options = {}): Plugin[] {
   const htmlPrefixes = resolveAttrPrefixes(options.attrPrefixes)
-  const mode = options.mode ?? "svg"
+  const mode = options.mode ?? "sprite"
+  const spriteGroupBy = options.spriteGroupBy ?? "all"
+  if (spriteGroupBy !== "all" && spriteGroupBy !== "set")
+    throw new TypeError('spriteGroupBy must be "all" or "set".')
+  const spriteMaxBytes = options.spriteMaxBytes ?? defaultSpriteMaxBytes
+  if (
+    spriteMaxBytes !== false &&
+    (!Number.isSafeInteger(spriteMaxBytes) || spriteMaxBytes <= 0)
+  )
+    throw new TypeError(
+      "spriteMaxBytes must be a positive safe integer or false."
+    )
   const extraction = createExtractionQueue(options.concurrency, options.timeout)
   const assetsDir = options.assetsDir ?? "icons"
   if (
@@ -108,7 +136,10 @@ export function icones(options: Options = {}): Plugin[] {
   let repository: IconRepository
   let bundledRepository: IconRepository | undefined
   const assets = new Map<string, Asset>()
+  const spriteSymbols = new Map<string, GeneratedSymbol>()
+  const spriteAssignments = new Map<string, string>()
   const collected = new Map<string, RecordData>()
+  const emittedData = new Set<string>()
   const pending = new Map<string, Promise<RecordData>>()
   const generatedFiles = new Map<string, string>()
   let config: ResolvedConfig
@@ -122,6 +153,101 @@ export function icones(options: Options = {}): Plugin[] {
     record.file.includes("/data/")
       ? record.file.replace("/data/", "/symbols/")
       : `symbols/${record.file}`
+  const spriteFile = (set?: string) =>
+    set ? `${assetsDir}/${set}/sprite.svg` : `${assetsDir}/sprite.svg`
+
+  function generatedSymbol(
+    name: string,
+    record: IconRecord,
+    data: ElementData
+  ): GeneratedSymbol {
+    const svg = iconToSVG(withIconViewBox(elementDataToIcon(data), record.name))
+    const id = "iconify-" + Buffer.from(name).toString("hex")
+    return {
+      name,
+      set: record.prefix,
+      id,
+      viewBox: svg.attributes.viewBox,
+      body: replaceSvgIds(configurableStrokeBody(svg.body), id + "-"),
+    }
+  }
+
+  const spriteStart =
+    '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs>'
+  const spriteEnd = "</defs></svg>"
+  function symbolMarkup({ id, viewBox, body }: GeneratedSymbol) {
+    return `<symbol id="${id}" viewBox="${viewBox}">${body}</symbol>`
+  }
+
+  function symbolDocument(symbols: readonly GeneratedSymbol[]) {
+    return spriteStart + symbols.map(symbolMarkup).join("") + spriteEnd
+  }
+
+  function spriteChunks(maxBytes: number | false): SpriteChunk[] {
+    const symbols = [...spriteSymbols.values()].sort((left, right) =>
+      left.name.localeCompare(right.name)
+    )
+    if (!symbols.length) return []
+    const symbolGroups = new Map<string, GeneratedSymbol[]>()
+    for (const symbol of symbols) {
+      const key = spriteGroupBy === "set" ? symbol.set : ""
+      const group = symbolGroups.get(key)
+      if (group) group.push(symbol)
+      else symbolGroups.set(key, [symbol])
+    }
+    const chunks: SpriteChunk[] = []
+    for (const [set, groupSymbols] of symbolGroups) {
+      const groups: GeneratedSymbol[][] = []
+      let group: GeneratedSymbol[] = []
+      let bytes = Buffer.byteLength(spriteStart + spriteEnd)
+      for (const symbol of groupSymbols) {
+        const symbolBytes = Buffer.byteLength(symbolMarkup(symbol))
+        if (
+          maxBytes !== false &&
+          group.length &&
+          bytes + symbolBytes > maxBytes
+        ) {
+          groups.push(group)
+          group = [symbol]
+          bytes = Buffer.byteLength(spriteStart + spriteEnd) + symbolBytes
+        } else {
+          group.push(symbol)
+          bytes += symbolBytes
+        }
+      }
+      groups.push(group)
+      const baseFile = spriteFile(set || undefined)
+      const chunked = groups.length > 1
+      chunks.push(
+        ...groups.map((items, index) => ({
+          fileName: chunked
+            ? baseFile.replace(/\.svg$/, `-${index + 1}.svg`)
+            : baseFile,
+          source: symbolDocument(items),
+          names: items.map(({ name }) => name),
+        }))
+      )
+    }
+    return chunks
+  }
+
+  function updateSpriteAssets(maxBytes: number | false) {
+    const chunks = spriteChunks(maxBytes)
+    for (const chunk of chunks) assets.set(chunk.fileName, chunk)
+    return chunks
+  }
+
+  function spritePlaceholder(name: string) {
+    return `${spritePlaceholderPrefix}${Buffer.from(name).toString("hex")}__`
+  }
+
+  function packageRepository() {
+    return (bundledRepository ??= createIconRepository(
+      path.dirname(
+        createRequire(import.meta.url).resolve("@icones/icons/package.json")
+      )
+    ))
+  }
 
   async function extract(
     name: string,
@@ -171,11 +297,7 @@ export function icones(options: Options = {}): Plugin[] {
     }
     // Resolve from this plugin's dependencies, not the application's cwd or a
     // monorepo path. Index manifests lazily; only read the requested icon body.
-    bundledRepository ??= createIconRepository(
-      path.dirname(
-        createRequire(import.meta.url).resolve("@icones/icons/package.json")
-      )
-    )
+    const bundledRepository = packageRepository()
     await bundledRepository.ready()
     signal.throwIfAborted()
     const bundled = bundledRepository.resolve(name)
@@ -264,7 +386,7 @@ export function icones(options: Options = {}): Plugin[] {
     entry: ReturnType<typeof collectionEntry>,
     data: ElementData
   ) {
-    // Keep symbols and manifest in sync so both symbol mode and offline data mode stay discoverable.
+    // Keep per-icon service symbols and manifests in sync for static hosting and offline data lookup.
     const file = path.join(
       dataDir,
       entry.prefix,
@@ -300,6 +422,49 @@ export function icones(options: Options = {}): Plugin[] {
       pending.set(name, request)
     }
     return request
+  }
+
+  function addRepositorySetNames(
+    names: Set<string>,
+    prefix: string,
+    source: IconRepository
+  ) {
+    for (const record of source.records.values())
+      if (record.prefix === prefix) names.add(record.name)
+    for (const manifest of source.manifests.values()) {
+      const suffix = manifest.aliases?.[prefix]?.suffix
+      if (suffix === undefined) continue
+      for (const record of source.records.values()) {
+        if (record.prefix !== manifest.prefix) continue
+        const slug = record.name.slice(record.prefix.length + 1)
+        if (!slug.endsWith(suffix)) continue
+        const aliasSlug = suffix ? slug.slice(0, -suffix.length) : slug
+        if (aliasSlug) names.add(`${prefix}:${aliasSlug}`)
+      }
+    }
+  }
+
+  /** Enumerate an explicitly imported collection; dynamic JSX names stay opt-in. */
+  async function iconSetNames(prefix: string) {
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(prefix))
+      throw new TypeError(`Invalid icon set prefix: ${prefix}`)
+    await repository.ready()
+    const bundled = packageRepository()
+    await bundled.ready()
+    const names = new Set<string>()
+    addRepositorySetNames(names, prefix, repository)
+    addRepositorySetNames(names, prefix, bundled)
+    const set = sets.get(prefix)
+    if (set)
+      for (const slug of [
+        ...Object.keys(set.icons),
+        ...Object.keys(set.aliases ?? {}),
+      ])
+        names.add(`${prefix}:${slug}`)
+    for (const name of Object.keys(options.icons ?? {}))
+      if (name.startsWith(prefix + ":")) names.add(name)
+    if (!names.size) throw new Error(`Unknown icon set: ${prefix}`)
+    return [...names].toSorted((left, right) => left.localeCompare(right))
   }
 
   function installMiddleware(
@@ -340,7 +505,7 @@ export function icones(options: Options = {}): Plugin[] {
         // Restrict the lookup to generated paths, never arbitrary URL paths.
         if (
           outputDir &&
-          /^(?:symbols\/[a-z0-9/-]+\.svg|data\/[a-z0-9/-]+\.json|[a-z0-9-]+\/(?:data\/[a-z0-9-]+\.json|symbols\/[a-z0-9-]+\.svg))$/.test(
+          /^(?:sprite(?:-[1-9][0-9]*)?\.svg|symbols\/[a-z0-9/-]+\.svg|data\/[a-z0-9/-]+\.json|[a-z0-9-]+\/(?:sprite(?:-[1-9][0-9]*)?\.svg|data\/[a-z0-9-]+\.json|symbols\/[a-z0-9-]+\.svg))$/.test(
             relative
           )
         ) {
@@ -401,7 +566,7 @@ export function icones(options: Options = {}): Plugin[] {
     resolveId(id) {
       if (id === runtimeId || id === "@icones/core/runtime")
         return "\0" + runtimeId
-      if (id.startsWith(iconId)) return "\0" + id
+      if (id.startsWith(iconId) || id.startsWith(setId)) return "\0" + id
     },
   }
   const plugin: Plugin = {
@@ -446,7 +611,10 @@ export function icones(options: Options = {}): Plugin[] {
     },
     async buildStart() {
       assets.clear()
+      spriteSymbols.clear()
+      spriteAssignments.clear()
       collected.clear()
+      emittedData.clear()
       await repository.refresh()
       await bundledRepository?.refresh()
       if (
@@ -457,16 +625,38 @@ export function icones(options: Options = {}): Plugin[] {
       ) {
         for (const record of repository.records.values()) {
           const data = await repository.read(record)
+          const fileName = `${assetsDir}/${dataAsset(record)}`
+          emittedData.add(fileName)
           this.emitFile({
             type: "asset",
-            fileName: `${assetsDir}/${dataAsset(record)}`,
+            fileName,
             source: JSON.stringify(data, null, 2) + "\n",
           })
         }
       }
     },
     buildEnd(error) {
-      if (error) extraction.cancel(error)
+      if (error) {
+        extraction.cancel(error)
+        return
+      }
+      if (
+        config.command === "build" &&
+        mode === "sprite" &&
+        spriteSymbols.size
+      ) {
+        const chunks = updateSpriteAssets(spriteMaxBytes)
+        for (const chunk of chunks) {
+          for (const name of chunk.names)
+            spriteAssignments.set(name, chunk.fileName)
+          if (this.environment.config.build.emitAssets)
+            this.emitFile({
+              type: "asset",
+              fileName: chunk.fileName,
+              source: chunk.source,
+            })
+        }
+      }
     },
     closeBundle() {
       if (config.command === "serve") extraction.cancel()
@@ -541,50 +731,94 @@ export function icones(options: Options = {}): Plugin[] {
           `export { iconLoader, registerStatic, resolve } from ${JSON.stringify(coreRuntimeId)}`,
         ].join("\n")
       }
-      if (!id.startsWith("\0" + iconId)) return
-      const name = id.slice(iconId.length + 1)
-      const resolvedRecord = await getRecord(name)
-      const { record, repository: owner } = resolvedRecord
-      this.addWatchFile(path.join(owner.root, record.file))
-      if (owner.manifests.has(record.prefix))
-        this.addWatchFile(path.join(owner.root, record.prefix, "manifest.json"))
       const emit =
         config.command === "build" && this.environment.config.build.emitAssets
-      const data = await owner.read(record)
-      if (owner !== repository) collected.set(dataAsset(record), resolvedRecord)
-      if (emit && options.emitData !== false)
-        this.emitFile({
-          type: "asset",
-          fileName: `${assetsDir}/${dataAsset(record)}`,
-          source: JSON.stringify(data, null, 2) + "\n",
-        })
-      let resolved: { data?: ElementData; href?: string; viewBox?: string } = {
-        data,
+      const registration = async (name: string, updateDevSprite = true) => {
+        const resolvedRecord = await getRecord(name)
+        const { record, repository: owner } = resolvedRecord
+        this.addWatchFile(path.join(owner.root, record.file))
+        if (owner.manifests.has(record.prefix))
+          this.addWatchFile(
+            path.join(owner.root, record.prefix, "manifest.json")
+          )
+        const data = await owner.read(record)
+        if (owner !== repository)
+          collected.set(dataAsset(record), resolvedRecord)
+        const dataFileName = `${assetsDir}/${dataAsset(record)}`
+        if (
+          emit &&
+          options.emitData !== false &&
+          !emittedData.has(dataFileName)
+        ) {
+          emittedData.add(dataFileName)
+          this.emitFile({
+            type: "asset",
+            fileName: dataFileName,
+            source: JSON.stringify(data, null, 2) + "\n",
+          })
+        }
+        let resolved: { data?: ElementData; href?: string; viewBox?: string } =
+          {
+            data,
+          }
+        if (mode === "symbol" || mode === "sprite") {
+          const symbol = generatedSymbol(name, record, data)
+          let fileName: string
+          if (mode === "sprite") {
+            spriteSymbols.set(name, symbol)
+            fileName = spriteFile(
+              spriteGroupBy === "set" ? symbol.set : undefined
+            )
+            // Dev serves the current in-memory sprite; builds compose it once in buildEnd.
+            if (config.command === "serve" && updateDevSprite)
+              updateSpriteAssets(false)
+          } else {
+            const source = symbolDocument([symbol])
+            const hash = createHash("sha256")
+              .update(source)
+              .digest("hex")
+              .slice(0, 10)
+            fileName = `${assetsDir}/${symbolAsset(record).slice(0, -5)}-${hash}.svg`
+            assets.set(fileName, { fileName, source })
+            if (emit) this.emitFile({ type: "asset", fileName, source })
+          }
+          resolved = {
+            href:
+              (mode === "sprite" && config.command === "build"
+                ? spritePlaceholder(name)
+                : joinBase(config.base, fileName)) +
+              "#" +
+              symbol.id,
+            viewBox: symbol.viewBox,
+          }
+        }
+        return `registerStatic(${JSON.stringify(name)}, ${JSON.stringify(resolved)});`
       }
-      if (mode === "symbol") {
-        const svg = iconToSVG(
-          withIconViewBox(elementDataToIcon(data), record.name)
-        )
-        const symbolId = "iconify-" + Buffer.from(name).toString("hex")
-        const body = replaceSvgIds(
-          configurableStrokeBody(svg.body),
-          symbolId + "-"
-        )
-        const source = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="${symbolId}" viewBox="${svg.attributes.viewBox}">${body}</symbol></defs></svg>`
-        const hash = createHash("sha256")
-          .update(source)
-          .digest("hex")
-          .slice(0, 10)
-        const fileName = `${assetsDir}/${symbolAsset(record).slice(0, -5)}-${hash}.svg`
-        assets.set(fileName, { fileName, source })
-        if (emit) this.emitFile({ type: "asset", fileName, source })
-        resolved = {
-          href: joinBase(config.base, fileName) + "#" + symbolId,
-          viewBox: svg.attributes.viewBox,
+      if (id.startsWith("\0" + setId)) {
+        if (mode !== "sprite")
+          throw new Error('Icon set modules require mode: "sprite".')
+        const prefix = id.slice(setId.length + 1)
+        const names = await iconSetNames(prefix)
+        const registrations: string[] = []
+        // Sets are processed sequentially; Vite can still load separate lazy set
+        // modules concurrently without opening every collection file at once.
+        for (const name of names)
+          registrations.push(await registration(name, false))
+        if (config.command === "serve") updateSpriteAssets(false)
+        return {
+          code: [
+            `import { registerStatic } from ${JSON.stringify(runtimeId)};`,
+            ...registrations,
+            `export const prefix = ${JSON.stringify(prefix)};`,
+            `export const count = ${names.length};`,
+          ].join("\n"),
+          moduleSideEffects: "no-treeshake",
         }
       }
+      if (!id.startsWith("\0" + iconId)) return
+      const name = id.slice(iconId.length + 1)
       return {
-        code: `import { registerStatic } from ${JSON.stringify(runtimeId)};\nregisterStatic(${JSON.stringify(name)}, ${JSON.stringify(resolved)});`,
+        code: `import { registerStatic } from ${JSON.stringify(runtimeId)};\n${await registration(name)}`,
         moduleSideEffects: "no-treeshake",
       }
     },
@@ -603,6 +837,17 @@ export function icones(options: Options = {}): Plugin[] {
         )
           entry.viteMetadata.importedAssets.add(output.fileName)
       }
+    },
+    renderChunk(code) {
+      if (mode !== "sprite" || !code.includes(spritePlaceholderPrefix)) return
+      for (const [name, fileName] of spriteAssignments)
+        code = code.replaceAll(
+          spritePlaceholder(name),
+          joinBase(config.base, fileName)
+        )
+      if (code.includes(spritePlaceholderPrefix))
+        throw new Error("Unable to resolve an Icones sprite chunk.")
+      return { code, map: null }
     },
     configureServer(server) {
       // closeBundle runs after Vite waits for pending transforms. Cancel before
@@ -636,7 +881,10 @@ export function icones(options: Options = {}): Plugin[] {
         return []
       generatedFiles.delete(context.file)
       assets.clear()
+      spriteSymbols.clear()
+      spriteAssignments.clear()
       collected.clear()
+      emittedData.clear()
       await repository.refresh()
       await bundledRepository?.refresh()
       for (const module of context.server.moduleGraph.idToModuleMap.values()) {

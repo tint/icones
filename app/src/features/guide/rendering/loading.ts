@@ -10,10 +10,16 @@ export const article: GuideArticle = {
       title: "Vite mode and API type control different stages",
       paragraphs: [
         "Vite mode controls build output for names the plugin collects. API type controls runtime resolution only when the selected name is not already compiled or available from the store’s data sources. They are independent settings; neither overrides the other globally.",
+        "Computed icon names are not collected automatically. When an interface can select from a known list of complete collections, map each allowed prefix to an explicit dynamic import of virtual:icones/set/<prefix>. Loading that module registers every name in the set against the generated Sprite chunks, so components can use dynamic names without per-icon JSON requests.",
       ],
       table: {
         headings: ["Setting", "When it applies", "Rendering result"],
         rows: [
+          [
+            'mode: "sprite" (default)',
+            "Build time: collected names.",
+            "One or more generated SVG sprite chunks + registered fragment URLs → external use references.",
+          ],
           [
             'mode: "svg"',
             "Build time: collected names.",
@@ -22,7 +28,7 @@ export const article: GuideArticle = {
           [
             'mode: "symbol"',
             "Build time: collected names.",
-            "Generated SVG asset + registered URL → external use reference.",
+            "One generated SVG per icon + registered URL → external use reference.",
           ],
           [
             'api: { type: "fetch" }',
@@ -40,10 +46,14 @@ export const article: GuideArticle = {
         {
           filename: "vite.config.ts",
           codeMessages: ["// Keep your existing framework plugin here."],
-          code: 'import { defineConfig } from "vite"\nimport { icones } from "@icones/vite"\n\nexport default defineConfig({\n  plugins: [\n    // Keep your existing framework plugin here.\n    icones({\n      mode: "svg",\n      dataDir: "./icons",\n      emitData: false,\n      fallbackToApi: false,\n    }),\n  ],\n})',
+          code: 'import { defineConfig } from "vite"\nimport { icones } from "@icones/vite"\n\nexport default defineConfig({\n  plugins: [\n    // Keep your existing framework plugin here.\n    icones({\n      mode: "sprite",\n      spriteGroupBy: "set",\n      dataDir: "./icons",\n      emitData: false,\n      fallbackToApi: false,\n    }),\n  ],\n})',
+        },
+        {
+          filename: "icon-sets.ts",
+          code: 'const sets = {\n  tabler: () => import("virtual:icones/set/tabler"),\n  lucide: () => import("virtual:icones/set/lucide"),\n}\n\nexport const loadIconSet = (selectedSet: keyof typeof sets) =>\n  sets[selectedSet]()',
         },
       ],
-      note: 'Vite defaults to mode: "svg"; there is no mode: "data" or mode: "inline". A normal API options object defaults to type: "fetch". Omitting api uses the parent/application loader, whose root default is https://<set>.icones.go-slim.dev/data/<name>.json, so omission is not an offline setting. emitData only controls emitted JSON files, not the rendering path. fallbackToApi: false disables the plugin’s build-time fallback, not the runtime service; use IconConfig api: false for offline runtime behavior.',
+      note: 'Vite defaults to mode: "sprite" and spriteGroupBy: "all". It emits one <assetsDir>/sprite.svg while the generated SVG is at most 256 KiB, then automatically emits numbered chunks such as sprite-1.svg. Set spriteGroupBy: "set" to emit <assetsDir>/<set>/sprite.svg and apply the size limit independently within each set. Configure the raw-byte limit with spriteMaxBytes or set it to false to disable size chunking. Use mode: "symbol" for one SVG per icon or mode: "svg" for inline data; there is no mode: "data" or mode: "inline". A normal API options object defaults to type: "fetch". Omitting api uses the parent/application loader, whose root default is https://<set>.icones.go-slim.dev/data/<name>.json, so omission is not an offline setting. emitData only controls emitted JSON files, not the rendering path. fallbackToApi: false disables the plugin’s build-time fallback, not the runtime service; use IconConfig api: false for offline runtime behavior.',
     },
     {
       id: "api-types",
@@ -60,6 +70,18 @@ export const article: GuideArticle = {
           "Runtime-only name",
         ],
         rows: [
+          [
+            "sprite",
+            "fetch",
+            "Symbol: reference the generated sprite.",
+            "Data: after a JSON request.",
+          ],
+          [
+            "sprite",
+            "symbol",
+            "Symbol: reference the generated sprite.",
+            "Symbol: reference the API’s SVG URL.",
+          ],
           [
             "svg",
             "fetch",
@@ -87,8 +109,8 @@ export const article: GuideArticle = {
         ],
       },
       bullets: [
-        "Direct data / altData and data resolved from sources always render inline, including when both mode and type are symbol. A name alone does not tell you which path is used.",
-        "With api: false, unresolved runtime names have no API fallback. Already compiled data/symbols and local data still work; a compiled symbol still requires its SVG asset to be served.",
+        "Direct data / altData and data resolved from sources always render inline, including when Vite or the runtime API uses symbols. A name alone does not tell you which path is used.",
+        "With api: false, unresolved runtime names have no API fallback. Already compiled data/symbols and local data still work; a compiled Sprite or per-icon symbol still requires its SVG asset to be served.",
         'With baseUrl: "/icons", fetch requests /icons/tabler.json?icons=star and reads JSON. Symbol references /icons/tabler/star.svg#icon. These are different endpoints; changing type does not convert a JSON service into a symbol service.',
         "For symbol, no JavaScript JSON fetch does not mean no network request: the browser loads the external SVG. Serve it from the page’s origin with the matching symbol ID; configuring api does not create these files or a server.",
       ],
@@ -121,7 +143,7 @@ export const article: GuideArticle = {
       bullets: [
         "For fetch, inspect the requested JSON, HTTP status and response shape. Use transform only to unwrap your own response envelope; use fetch/requestInit for request options. Never embed server secrets in browser configuration.",
         "For symbol, inspect the SVG request and its symbol ID. There is no JavaScript JSON response to transform, and symbol configuration does not accept fetch/requestInit. A ready reference is not a confirmed download.",
-        "Deploy Vite-generated symbol assets together with the app. Deploy runtime API endpoints separately when needed. Test a collected name, a runtime-only name and direct data so all configured paths are covered.",
+        "Deploy the Vite-generated Sprite or per-icon symbol assets together with the app. Deploy runtime API endpoints separately when needed. Test a collected name, a runtime-only name and direct data so all configured paths are covered.",
       ],
       links: [
         {

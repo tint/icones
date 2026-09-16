@@ -1,3 +1,5 @@
+/// <reference types="@icones/vite/client" />
+
 interface ImportMetaEnv {
   /** Shared artwork root, with <set>/data and <set>/symbols underneath. */
   readonly VITE_ICON_DATA_BASE_URL?: string

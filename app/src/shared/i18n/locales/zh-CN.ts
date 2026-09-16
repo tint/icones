@@ -214,8 +214,8 @@ export const messages: Readonly<Record<string, string>> = {
     "在服务端等待数据并渲染 SVG，无需客户端运行时。",
   "Declare icons in HTML and initialize once. Attribute changes update automatically.":
     "在 HTML 中声明图标，只需初始化一次；属性变化会自动更新。",
-  "Collect static names and emit inline SVG or individual symbols.":
-    "收集静态名称，生成内联 SVG 或独立 symbol。",
+  "Collect static names into an auto-chunked SVG sprite by default, with inline and per-icon output options.":
+    "收集静态名称并默认合并为可自动分块的 SVG Sprite，同时支持内联和逐图标输出。",
   "Solutions · Packages": "解决方案 · 包",
   "Six adapters share the same data and loading foundation. Choose a package to see its install command and a minimal example.":
     "六种适配器共享数据与加载基础。选择一个包，查看安装命令和最简示例。",

@@ -1,5 +1,5 @@
 {
   "extends": "./tsconfig.tests.json",
-  "include": ["tests/types/**/*.ts", "tests/types/**/*.tsx"],
+  "include": ["client.d.ts", "tests/types/**/*.ts", "tests/types/**/*.tsx"],
   "exclude": []
 }

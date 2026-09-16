@@ -50,14 +50,16 @@ test("rendering matrices remain complete and localized when the language changes
             const cells = rows("api-types").map((row) =>
               [...row.querySelectorAll("td")].map((cell) => cell.textContent)
             )
-            expect(cells).toHaveLength(4)
+            expect(cells).toHaveLength(6)
             expect(cells.map((row) => row.slice(0, 2))).toEqual([
+              ["sprite", "fetch"],
+              ["sprite", "symbol"],
               ["svg", "fetch"],
               ["svg", "symbol"],
               ["symbol", "fetch"],
               ["symbol", "symbol"],
             ])
-            expect(cells[1]![2]).toBe(
+            expect(cells[3]![2]).toBe(
               language === "zh-CN"
                 ? "data：来自构建产物。"
                 : "Data: from the bundle."

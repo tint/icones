@@ -87,7 +87,7 @@ export const article: GuideArticle = {
       id: "source-weight",
       title: "Source weight is not always the displayed weight",
       paragraphs: [
-        "Omitting strokeWidth still uses the shared default of 1.5; it does not request the original width. For example, tabler:star has a source width of 2 on a 24-unit canvas, but its eligible strokes render at 1.5px in a 24px box with default configuration, in both Vite modes.",
+        "Omitting strokeWidth still uses the shared default of 1.5; it does not request the original width. For example, tabler:star has a source width of 2 on a 24-unit canvas, but its eligible strokes render at 1.5px in a 24px box with default configuration, in every Vite mode.",
         "Phosphor Regular uses a 256-unit canvas. For phosphor:star, its source width of 16 corresponds to strokeWidth: 1.5 on a 24-unit basis, so the default preserves this example’s weight. Set a different numeric strokeWidth to customize Regular; it will not reshape phosphor:star-fill.",
       ],
       examples: [
@@ -103,7 +103,7 @@ export const article: GuideArticle = {
       id: "limits",
       title: "Check these cases before switching modes",
       paragraphs: [
-        "The two modes share presentation rules, but are not guaranteed to produce pixel-identical output for every custom data shape. Keep the original viewport and explicit paint attributes when importing artwork, then compare both outputs if you rely on internal SVG details.",
+        "All Vite modes share presentation rules, but inline data and external symbols are not guaranteed to produce pixel-identical output for every custom data shape. Keep the original viewport and explicit paint attributes when importing artwork, then compare both rendering paths if you rely on internal SVG details.",
       ],
       table: {
         headings: ["Case", "Current behavior and what to do"],

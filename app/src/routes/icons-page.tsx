@@ -17,6 +17,7 @@ import {
   type CatalogIcon,
 } from "../features/catalog/types.ts"
 import { previewIconApi } from "../shared/icons/config.ts"
+import { loadCompiledIconSet } from "../shared/icons/set-sprites.ts"
 
 const selectClass =
   "flex h-10 max-w-full items-center gap-2 rounded-full bg-slate-100/80 px-3 text-sm whitespace-nowrap dark:bg-slate-800"
@@ -54,6 +55,9 @@ export default function IconsPage() {
     },
     revision
   )
+  const compiled = useCompiledIconSet(set, revision)
+  const loading = catalog.loading || compiled.loading
+  const error = catalog.error || compiled.error
   const groups = useMemo(
     () => groupIcons(catalog.page?.icons ?? []),
     [catalog.page]
@@ -220,14 +224,14 @@ export default function IconsPage() {
               className="ml-auto text-sm text-slate-500 dark:text-slate-400"
               role="status"
             >
-              {catalog.loading
+              {loading
                 ? t("Loading catalog…")
                 : t("{count} icons", {
                     count: (catalog.page?.total ?? 0).toLocaleString(language),
                   })}
             </span>
           </div>
-          {catalog.error && (
+          {error && (
             <p role="alert" className="py-12 text-center">
               {t("Unable to load the icon catalog. Please retry.")}
               <Button onClick={() => setRevision((value) => value + 1)}>
@@ -235,13 +239,13 @@ export default function IconsPage() {
               </Button>
             </p>
           )}
-          {catalog.loading && (
+          {loading && (
             <div
               className="h-72 animate-pulse rounded-2xl bg-slate-50 dark:bg-slate-900"
               aria-label={t("Loading icons")}
             />
           )}
-          {!catalog.loading && !catalog.error && !groups.length && (
+          {!loading && !error && !groups.length && (
             <div className="py-20 text-center">
               <h2 className="text-xl font-semibold">
                 {t("No matching icons")}
@@ -253,12 +257,17 @@ export default function IconsPage() {
               </p>
             </div>
           )}
-          <IconConfig api={previewIconApi} strokeWidth={1.5}>
-            <VirtualCategoryGrid
-              categories={groups}
-              color="var(--catalog-icon-color)"
-              onSelect={setSelectedIcon}
-            />
+          <IconConfig
+            api={compiled.available ? false : previewIconApi}
+            strokeWidth={1.5}
+          >
+            {!loading && !error && (
+              <VirtualCategoryGrid
+                categories={groups}
+                color="var(--catalog-icon-color)"
+                onSelect={setSelectedIcon}
+              />
+            )}
           </IconConfig>
         </div>
       </section>
@@ -271,4 +280,37 @@ export default function IconsPage() {
       )}
     </>
   )
+}
+
+function useCompiledIconSet(prefix: string, revision: number) {
+  const key = `${prefix}:${revision}`
+  const [result, setResult] = useState<{
+    key: string
+    available: boolean
+    error?: string
+  }>()
+  useEffect(() => {
+    let active = true
+    void loadCompiledIconSet(prefix).then(
+      (module) => {
+        if (active) setResult({ key, available: module.count > 0 })
+      },
+      (error: unknown) => {
+        if (active)
+          setResult({
+            key,
+            available: false,
+            error: error instanceof Error ? error.message : String(error),
+          })
+      }
+    )
+    return () => {
+      active = false
+    }
+  }, [key, prefix])
+  return {
+    loading: result?.key !== key,
+    error: result?.key === key ? result.error : undefined,
+    available: result?.key === key && result.available,
+  }
 }

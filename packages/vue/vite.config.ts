@@ -7,7 +7,6 @@ export default defineConfig({
   root: "./playground",
   plugins: [
     icones({
-      mode: "symbol",
       dataDir: fileURLToPath(new URL("../icons", import.meta.url)),
       emitData: false,
       fallbackToApi: false,

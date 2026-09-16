@@ -60,7 +60,7 @@ try {
     plugins: [
       icones({
         dataDir: path.join(directory, "data"),
-        mode: "symbol",
+        mode: "sprite",
         emitData: false,
         fallbackToApi: false,
         loadIcon: async () => {
@@ -114,7 +114,7 @@ try {
           calls,
           peakConcurrency: peak,
           elapsedMs: Number((performance.now() - buildStarted).toFixed(2)),
-          symbols: files.filter(
+          svgAssets: files.filter(
             (file) => file.type === "asset" && file.fileName.endsWith(".svg")
           ).length,
         },

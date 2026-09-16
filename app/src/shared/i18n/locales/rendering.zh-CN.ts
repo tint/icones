@@ -35,8 +35,8 @@ export const renderingMessages: Readonly<Record<string, string>> = {
     "fetch：检查 JSON 请求、HTTP 状态和响应结构。自定义响应外壳可通过 transform 解包，请求选项使用 fetch/requestInit。不要把服务端密钥写进浏览器配置。",
   "For symbol, inspect the SVG request and its symbol ID. There is no JavaScript JSON response to transform, and symbol configuration does not accept fetch/requestInit. A ready reference is not a confirmed download.":
     "symbol：检查 SVG 请求及其中的 symbol ID。它没有可供 transform 处理的 JavaScript JSON 响应，也不接收 fetch/requestInit。引用已就绪不代表下载已成功。",
-  "Deploy Vite-generated symbol assets together with the app. Deploy runtime API endpoints separately when needed. Test a collected name, a runtime-only name and direct data so all configured paths are covered.":
-    "将 Vite 生成的 symbol 资源与应用一同部署；按需单独部署运行时 API。分别检查已收集名称、仅运行时名称和直接传入的数据，覆盖实际使用的各条路径。",
+  "Deploy the Vite-generated Sprite or per-icon symbol assets together with the app. Deploy runtime API endpoints separately when needed. Test a collected name, a runtime-only name and direct data so all configured paths are covered.":
+    "将 Vite 生成的 Sprite 或逐图标 symbol 资源与应用一同部署；按需单独部署运行时 API。分别检查已收集名称、仅运行时名称和直接传入的数据，覆盖实际使用的各条路径。",
   "Review accepted data formats": "查看支持的数据格式",
   "Check property behavior after loading": "检查加载后的属性效果",
   "A hollow shape is not necessarily a stroke": "中空图形不一定是描边",
@@ -61,8 +61,8 @@ export const renderingMessages: Readonly<Record<string, string>> = {
   "Two rendering results: data or symbol": "先看最终结果：data 还是 symbol",
   "Both paths render an SVG element. The difference is what is inside it: data renders the actual paths in the page; symbol renders a use element that references an external SVG file. Symbol is not an image tag, and it does not mean all appearance props are disabled.":
     "两种方式都会渲染 SVG 元素，区别在于里面放什么：data 把 path 等图形节点直接放进页面；symbol 使用 use 元素引用外部 SVG 文件。symbol 不是 img，也不代表外观属性全部失效。",
-  'Here, data means inline rendering, not only the data prop. It can come from data/altData, local sources, a fetch API, or Vite mode: "svg". A symbol reference can come from Vite mode: "symbol" or api.type: "symbol".':
-    '本页的 data 指内联渲染，不仅指 data 属性。data/altData、本地 sources、fetch API、Vite mode: "svg" 都可以提供数据；symbol 引用则可来自 Vite mode: "symbol" 或 api.type: "symbol"。',
+  'Here, data means inline rendering, not only the data prop. It can come from data/altData, local sources, a fetch API, or Vite mode: "svg". A symbol reference can come from Vite mode: "sprite" or "symbol", or api.type: "symbol".':
+    '本页的 data 指内联渲染，不仅指 data 属性。data/altData、本地 sources、fetch API、Vite mode: "svg" 都可以提供数据；symbol 引用则可来自 Vite mode: "sprite"、"symbol" 或 api.type: "symbol"。',
   "These simplified output shapes show the distinction; the real renderer also supplies sizing, stroke configuration, accessibility and transforms.":
     "下面是简化后的输出结构，实际渲染还会添加尺寸、描边配置、无障碍属性和变换。",
   "To identify the path, inspect the rendered SVG: actual drawing nodes such as path/circle mean data; a use element with an external href means symbol. Do not infer it from the Vite setting alone.":
@@ -71,22 +71,31 @@ export const renderingMessages: Readonly<Record<string, string>> = {
     "Vite mode 与 API type 管的是不同阶段",
   "Vite mode controls build output for names the plugin collects. API type controls runtime resolution only when the selected name is not already compiled or available from the store’s data sources. They are independent settings; neither overrides the other globally.":
     "Vite mode 决定插件收集到的名称如何输出；API type 决定运行时未命中已编译图标或 store 数据来源的名称如何加载。它们是独立设置，不存在一个全局覆盖另一个的关系。",
+  "Computed icon names are not collected automatically. When an interface can select from a known list of complete collections, map each allowed prefix to an explicit dynamic import of virtual:icones/set/<prefix>. Loading that module registers every name in the set against the generated Sprite chunks, so components can use dynamic names without per-icon JSON requests.":
+    "动态计算的图标名称不会被自动收集。如果界面会从一组已知的完整图标集中选择，请把每个允许的前缀映射到 virtual:icones/set/<prefix> 的显式动态导入。加载该模块会把集合中的所有名称注册到生成的 Sprite chunk，因此组件可以使用动态名称，而无需逐图标请求 JSON。",
   Setting: "配置",
   "When it applies": "何时生效",
   "Rendering result": "渲染结果",
+  'mode: "sprite" (default)': 'mode: "sprite"（默认）',
+  'mode: "svg"': 'mode: "svg"',
+  'mode: "symbol"': 'mode: "symbol"',
+  'api: { type: "fetch" }': 'api: { type: "fetch" }',
+  'api: { type: "symbol" }': 'api: { type: "symbol" }',
   "Build time: collected names.": "构建时：插件收集到的名称。",
+  "One or more generated SVG sprite chunks + registered fragment URLs → external use references.":
+    "生成一个或多个 SVG Sprite chunk 并注册片段 URL → use 引用外部图形。",
   "Data in the JavaScript module → inline SVG nodes.":
     "数据写入 JavaScript 模块 → 内联 SVG 节点。",
-  "Generated SVG asset + registered URL → external use reference.":
-    "生成 SVG 资源并注册 URL → use 引用外部图形。",
+  "One generated SVG per icon + registered URL → external use reference.":
+    "每个图标生成一个 SVG 并注册 URL → use 引用外部图形。",
   "Runtime: a name not resolved by compiled artwork or local sources.":
     "运行时：未被编译图形或本地 sources 解析的名称。",
   "JavaScript requests JSON → data → inline SVG nodes.":
     "JavaScript 请求 JSON → data → 内联 SVG 节点。",
   "Build a URL → external use reference; the browser loads the SVG.":
     "生成 URL → use 引用外部图形；由浏览器加载 SVG。",
-  'Vite defaults to mode: "svg"; there is no mode: "data" or mode: "inline". A normal API options object defaults to type: "fetch". Omitting api uses the parent/application loader, whose root default is https://<set>.icones.go-slim.dev/data/<name>.json, so omission is not an offline setting. emitData only controls emitted JSON files, not the rendering path. fallbackToApi: false disables the plugin’s build-time fallback, not the runtime service; use IconConfig api: false for offline runtime behavior.':
-    'Vite 默认 mode: "svg"，没有 mode: "data" 或 mode: "inline"。普通 API 选项对象省略 type 时按 fetch 处理；省略 api 会使用父级或应用加载器，其根默认值是 https://<set>.icones.go-slim.dev/data/<name>.json，因此不表示离线。emitData 只控制是否输出 JSON 文件，不决定渲染方式。fallbackToApi: false 关闭插件的构建期回退，不会关闭运行时服务；离线运行请设置 IconConfig api: false。',
+  'Vite defaults to mode: "sprite" and spriteGroupBy: "all". It emits one <assetsDir>/sprite.svg while the generated SVG is at most 256 KiB, then automatically emits numbered chunks such as sprite-1.svg. Set spriteGroupBy: "set" to emit <assetsDir>/<set>/sprite.svg and apply the size limit independently within each set. Configure the raw-byte limit with spriteMaxBytes or set it to false to disable size chunking. Use mode: "symbol" for one SVG per icon or mode: "svg" for inline data; there is no mode: "data" or mode: "inline". A normal API options object defaults to type: "fetch". Omitting api uses the parent/application loader, whose root default is https://<set>.icones.go-slim.dev/data/<name>.json, so omission is not an offline setting. emitData only controls emitted JSON files, not the rendering path. fallbackToApi: false disables the plugin’s build-time fallback, not the runtime service; use IconConfig api: false for offline runtime behavior.':
+    'Vite 默认 mode: "sprite" 且 spriteGroupBy: "all"。生成的 SVG 不超过 256 KiB 时输出一个 <assetsDir>/sprite.svg，超过后自动输出 sprite-1.svg 等编号 chunk。设置 spriteGroupBy: "set" 后会输出 <assetsDir>/<set>/sprite.svg，并在每个图标集内分别应用大小限制。可通过 spriteMaxBytes 配置原始字节上限，或设为 false 关闭大小分块。mode: "symbol" 会为每个图标输出一个 SVG，mode: "svg" 则使用内联数据；不存在 mode: "data" 或 mode: "inline"。普通 API 选项对象省略 type 时按 fetch 处理；省略 api 会使用父级或应用加载器，其根默认值是 https://<set>.icones.go-slim.dev/data/<name>.json，因此不表示离线。emitData 只控制是否输出 JSON 文件，不决定渲染方式。fallbackToApi: false 关闭插件的构建期回退，不会关闭运行时服务；离线运行请设置 IconConfig api: false。',
   "Combine mode and type: what actually renders?":
     "mode 与 type 组合后，实际怎么渲染？",
   "Read each column separately. “Collected name” means its Vite-generated module has loaded; “runtime-only name” means it is absent from compiled artwork, the store cache and local sources. The table assumes no per-icon loader override.":
@@ -96,11 +105,12 @@ export const renderingMessages: Readonly<Record<string, string>> = {
   "Data: from the bundle.": "data：来自构建产物。",
   "Data: after a JSON request.": "data：请求 JSON 后渲染。",
   "Symbol: reference the API’s SVG URL.": "symbol：引用 API 的 SVG URL。",
+  "Symbol: reference the generated sprite.": "symbol：引用构建生成的 Sprite。",
   "Symbol: reference a generated asset.": "symbol：引用构建生成的资源。",
-  "Direct data / altData and data resolved from sources always render inline, including when both mode and type are symbol. A name alone does not tell you which path is used.":
-    "直接传入 data / altData，以及从 sources 解析得到的数据，始终内联渲染，即使 mode 和 type 都是 symbol。仅凭 name 属性无法判断渲染方式。",
-  "With api: false, unresolved runtime names have no API fallback. Already compiled data/symbols and local data still work; a compiled symbol still requires its SVG asset to be served.":
-    "api: false 只关闭未解析名称的 API 回退。已编译的 data/symbol 和本地数据仍可用；编译出的 symbol 仍需能够访问对应的 SVG 资源。",
+  "Direct data / altData and data resolved from sources always render inline, including when Vite or the runtime API uses symbols. A name alone does not tell you which path is used.":
+    "直接传入 data / altData，以及从 sources 解析得到的数据，始终内联渲染，即使 Vite 或运行时 API 使用 symbol。仅凭 name 属性无法判断渲染方式。",
+  "With api: false, unresolved runtime names have no API fallback. Already compiled data/symbols and local data still work; a compiled Sprite or per-icon symbol still requires its SVG asset to be served.":
+    "api: false 只关闭未解析名称的 API 回退。已编译的 data/symbol 和本地数据仍可用；编译出的 Sprite 或逐图标 symbol 仍需能够访问对应的 SVG 资源。",
   'With baseUrl: "/icons", fetch requests /icons/tabler.json?icons=star and reads JSON. Symbol references /icons/tabler/star.svg#icon. These are different endpoints; changing type does not convert a JSON service into a symbol service.':
     '当 baseUrl: "/icons" 时，fetch 请求 /icons/tabler.json?icons=star 并读取 JSON；symbol 引用 /icons/tabler/star.svg#icon。这是两种不同接口，切换 type 不会把 JSON 服务转换为 symbol 服务。',
   "For symbol, no JavaScript JSON fetch does not mean no network request: the browser loads the external SVG. Serve it from the page’s origin with the matching symbol ID; configuring api does not create these files or a server.":
@@ -117,6 +127,11 @@ export const renderingMessages: Readonly<Record<string, string>> = {
     "下表使用 JavaScript 属性名，Vanilla HTML 请使用对应属性写法。Astro 在服务端渲染这些值，客户端状态变化需要客户端集成；mode 和 type 不会给适配器增加客户端响应能力。",
   "Data · inline SVG": "data · 内联 SVG",
   "Symbol · external use": "symbol · 外部 use",
+  "size / width / height": "size / width / height",
+  "rotate / hFlip / vFlip": "rotate / hFlip / vFlip",
+  "altName / altData / showAlt": "altName / altData / showAlt",
+  "class / className / style": "class / className / style",
+  "aria-label / aria-hidden / role": "aria-label / aria-hidden / role",
   "Yes. Changes the SVG box; explicit size wins over width/height.":
     "生效。调整 SVG 显示区域；显式 size 优先于 width/height。",
   "Yes. Changes the SVG box around the reference, not the source file.":
@@ -163,8 +178,8 @@ export const renderingMessages: Readonly<Record<string, string>> = {
   "Within the selected group, data wins over name and altData wins over altName. Supplying both in either group logs console.error, including an inactive alternative group. showAlt selects the alternative group only when one is provided; otherwise the primary remains selected.":
     "在被选中的组内，data 优先于 name，altData 优先于 altName。同组两者同时传入会输出 console.error，未显示的备选组也会检查。只有提供了备选来源，showAlt 才切换到备选组；否则仍显示主图标。",
   "Rendering and prop support": "渲染与属性支持",
-  "Understand which props change your artwork, what Vite’s svg and symbol modes produce, and where their behavior differs.":
-    "了解不同图形支持哪些属性、Vite 的 svg 与 symbol 模式分别输出什么，以及两种模式的行为差异。",
+  "Understand which props change your artwork, what Vite’s output modes produce, and where their behavior differs.":
+    "了解不同图形支持哪些属性、Vite 的各输出模式分别产生什么，以及不同渲染路径的行为差异。",
   "Check the drawing, not just the collection name":
     "判断图形的画法，而不只看图标集名称",
   "IconProps has the same meaning across collections, but not every drawing can respond to every prop. size changes the SVG box; color only reaches currentColor; strokeWidth only changes actual SVG strokes. A hollow-looking shape may be a filled path with a hole, not a stroke.":
@@ -234,20 +249,20 @@ export const renderingMessages: Readonly<Record<string, string>> = {
   "Configure defaults by collection": "按图标集配置默认值",
   "Source weight is not always the displayed weight":
     "原始线宽不一定等于显示线宽",
-  "Omitting strokeWidth still uses the shared default of 1.5; it does not request the original width. For example, tabler:star has a source width of 2 on a 24-unit canvas, but its eligible strokes render at 1.5px in a 24px box with default configuration, in both Vite modes.":
-    "省略 strokeWidth 仍会使用共享默认值 1.5，并不代表使用原始线宽。例如 tabler:star 在 24 单位画布中的原始线宽为 2，但在默认配置和 24px 显示尺寸下，可调整的描边会显示为 1.5px，两种 Vite 模式都是如此。",
+  "Omitting strokeWidth still uses the shared default of 1.5; it does not request the original width. For example, tabler:star has a source width of 2 on a 24-unit canvas, but its eligible strokes render at 1.5px in a 24px box with default configuration, in every Vite mode.":
+    "省略 strokeWidth 仍会使用共享默认值 1.5，并不代表使用原始线宽。例如 tabler:star 在 24 单位画布中的原始线宽为 2，但在默认配置和 24px 显示尺寸下，可调整的描边会显示为 1.5px；所有 Vite 模式都遵循此规则。",
   "Phosphor Regular uses a 256-unit canvas. For phosphor:star, its source width of 16 corresponds to strokeWidth: 1.5 on a 24-unit basis, so the default preserves this example’s weight. Set a different numeric strokeWidth to customize Regular; it will not reshape phosphor:star-fill.":
     "Phosphor Regular 使用 256 单位画布。以 phosphor:star 为例，原始线宽 16 换算到 24 单位基准后，对应 strokeWidth: 1.5，因此默认值会保留这个示例的线宽。可以设置其他数值自定义 Regular 的描边，但这不会改变 phosphor:star-fill 的形状。",
   'The component strokeWidth prop accepts a number, not an "original" string. Vanilla’s HTML stroke-width="original" is an attribute-specific escape hatch, not a cross-framework prop value.':
     '组件的 strokeWidth 属性接收数值，不支持 "original" 字符串。Vanilla HTML 的 stroke-width="original"（标准元素写作 icon-stroke-width）是该 HTML 属性的专用能力，不是跨框架通用的属性值。',
   "Stroke scaling and source artwork": "描边缩放与原始图形",
   "Choose Vite’s output mode": "选择 Vite 的输出模式",
-  'The @icones/vite option is mode: "svg" or mode: "symbol". svg is the plugin default; the quick-start guide explicitly chooses symbol. There is no mode: "inline". Keep your framework plugin and change only this option when comparing output.':
-    '@icones/vite 的选项为 mode: "svg" 或 mode: "symbol"。插件默认为 svg，快速开始中则显式选择了 symbol。不存在 mode: "inline"。比较输出时，保留已有框架插件，只切换此选项即可。',
+  'The @icones/vite option is mode: "sprite", mode: "symbol" or mode: "svg". sprite is the plugin default. There is no mode: "inline". Keep your framework plugin and change only this option when comparing output.':
+    '@icones/vite 的选项为 mode: "sprite"、mode: "symbol" 或 mode: "svg"，插件默认使用 sprite。不存在 mode: "inline"。比较输出时，保留已有框架插件，只切换此选项即可。',
   "mode controls the representation of statically collected names. It is not an Icon prop, does not freeze runtime props, and does not turn every icon in the application into a symbol.":
     "mode 决定静态收集到的名称采用哪种输出形式。它不是 Icon 属性，不会锁定运行时属性，也不会将应用中的所有图标都转换成 symbol。",
-  "Choose svg when you need self-contained artwork after JavaScript loads or must style individual paths. Choose symbol when you prefer separate, browser-cacheable SVG assets and can deploy them alongside your app. Neither choice makes filled paths respond to strokeWidth.":
-    "希望 JavaScript 加载后无需再请求图形，或需要设置内部路径样式时，选择 svg。希望使用可由浏览器缓存的独立 SVG 资源，并能将其随应用一同部署时，选择 symbol。两种模式都不会让填充路径响应 strokeWidth。",
+  "Choose sprite to combine collected icons into one browser-cacheable file, symbol for one file per icon, or svg for self-contained artwork after JavaScript loads and direct access to individual paths. No mode makes filled paths respond to strokeWidth.":
+    "选择 sprite 可将已收集图标合并为一个可缓存文件；选择 symbol 可让每个图标使用独立文件；选择 svg 可在 JavaScript 加载后获得自包含图形并直接访问内部路径。任何模式都不会让填充路径响应 strokeWidth。",
   Behavior: "行为",
   "Static artwork": "静态图形",
   "Icon data is included in the JavaScript module; each instance renders inline SVG elements.":
@@ -272,15 +287,15 @@ export const renderingMessages: Readonly<Record<string, string>> = {
   "Direct data renders inline.": "直接传入的数据以内联方式渲染。",
   "Direct data still renders inline; it is not extracted into a symbol by this option.":
     "直接传入的数据仍以内联方式渲染，不会因该选项被提取为 symbol。",
-  "Prepare every collected icon in dataDir before using this offline configuration. emitData controls JSON output separately; emitData: false does not disable the SVG assets needed by symbol mode. Changing mode requires restarting Vite or rebuilding the app.":
-    "使用此离线配置前，请在 dataDir 中准备好所有被收集的图标。emitData 单独控制 JSON 输出；emitData: false 不会关闭 symbol 模式所需的 SVG 资源输出。修改 mode 后需要重启 Vite 或重新构建应用。",
+  "Prepare every collected icon in dataDir before using this offline configuration. emitData controls JSON output separately; emitData: false does not disable the SVG assets needed by sprite or symbol mode. Changing mode requires restarting Vite or rebuilding the app.":
+    "使用此离线配置前，请在 dataDir 中准备好所有被收集图标。emitData 单独控制 JSON 输出；emitData: false 不会关闭 sprite 或 symbol 模式所需的 SVG 资源输出。修改 mode 后需要重启 Vite 或重新构建应用。",
   "Separate static collection from runtime loading": "区分静态收集与运行时加载",
   "Think about the selected source first, then its representation. A literal name in a supported Icon call can be collected at build time, including altName even when showAlt starts as false. Computed names are not automatically enumerated from application state.":
     "先判断选中了哪个来源，再判断如何渲染。插件可在构建时收集受支持 Icon 调用中的字面量名称，包括初始 showAlt 为 false 时的 altName；不会自动枚举应用状态中所有可能的动态名称。",
   "Direct data or altData: render inline without a name lookup. Do not add a name just to associate anonymous data with a collection.":
     "直接传入 data 或 altData：无需查找名称，直接内联渲染。不要为了给匿名数据指定图标集而同时传入 name。",
-  "A name already registered by a loaded Vite-generated module: use that compiled svg or symbol representation. This also applies when a dynamic value happens to match the registered name.":
-    "名称已由加载完成的 Vite 生成模块注册：使用对应的 svg 或 symbol 编译结果。动态值恰好匹配已注册名称时，也遵循此规则。",
+  "A name already registered by a loaded Vite-generated module: use that compiled svg, Sprite or per-icon symbol representation. This also applies when a dynamic value happens to match the registered name.":
+    "名称已由加载完成的 Vite 生成模块注册：使用对应的 svg、Sprite 或逐图标 symbol 编译结果。动态值恰好匹配已注册名称时，也遵循此规则。",
   "Other names: resolve through the icon’s store, local sources and configured API. A fetch API returns data to render inline; a symbol API supplies an external reference. These runtime API choices are separate from Vite mode.":
     "其他名称：通过图标的 store、本地 sources 和 API 配置解析。fetch API 返回数据后内联渲染，symbol API 提供外部引用。运行时 API 类型与 Vite mode 是不同配置。",
   "An explicit per-icon loader bypasses compiled-name resolution. Local sources can still resolve the name before that loader; supplying a loader does not stop Vite from collecting a literal name at build time.":
@@ -290,8 +305,8 @@ export const renderingMessages: Readonly<Record<string, string>> = {
   "Local data and runtime APIs": "本地数据与运行时 API",
   "Select primary and alternative sources": "选择主图标与备选来源",
   "Check these cases before switching modes": "切换模式前需要检查的情况",
-  "The two modes share presentation rules, but are not guaranteed to produce pixel-identical output for every custom data shape. Keep the original viewport and explicit paint attributes when importing artwork, then compare both outputs if you rely on internal SVG details.":
-    "两种模式共享外观规则，但不保证所有自定义数据的输出都逐像素一致。导入图形时应保留原始视口和显式颜色属性；如果依赖 SVG 内部细节，请比较两种模式的实际输出。",
+  "All Vite modes share presentation rules, but inline data and external symbols are not guaranteed to produce pixel-identical output for every custom data shape. Keep the original viewport and explicit paint attributes when importing artwork, then compare both rendering paths if you rely on internal SVG details.":
+    "所有 Vite 模式共享外观规则，但内联数据与外部 symbol 不保证对每种自定义数据都产生逐像素一致的结果。导入图形时应保留原始视口和显式颜色属性；如果依赖 SVG 内部细节，请比较两种渲染路径的实际输出。",
   Case: "情况",
   "Current behavior and what to do": "当前行为与处理方式",
   "Custom tuples without fill": "自定义元组缺少 fill",
@@ -310,8 +325,8 @@ export const renderingMessages: Readonly<Record<string, string>> = {
   "Compare prop support and Vite modes": "了解属性支持与 Vite 模式差异",
   "This calculation uses the resolved width and height, not a browser layout measurement. Numeric pixels and px strings work; relative CSS units or a later CSS size override do not guarantee a fixed pixel stroke.":
     "此计算使用解析后的 width 和 height，不会测量浏览器布局。数值像素和 px 字符串可参与计算；相对 CSS 单位或后续通过 CSS 覆盖尺寸时，不能保证固定像素描边。",
-  'Omitting strokeWidth still uses the shared default of 1.5, in both svg and symbol modes. Component props accept a numeric width; there is no cross-framework strokeWidth="original" value. Set an explicit weight when you need a thinner or bolder drawing.':
-    '无论 svg 还是 symbol 模式，省略 strokeWidth 仍会使用共享默认值 1.5。组件属性接收数值线宽，没有跨框架通用的 strokeWidth="original" 值。需要更细或更粗的图形时，请显式指定线宽。',
+  'Omitting strokeWidth still uses the shared default of 1.5 in every Vite mode. Component props accept a numeric width; there is no cross-framework strokeWidth="original" value. Set an explicit weight when you need a thinner or bolder drawing.':
+    '所有 Vite 模式下，省略 strokeWidth 都会使用共享默认值 1.5。组件属性接收数值线宽，没有跨框架通用的 strokeWidth="original" 值。需要更细或更粗的图形时，请显式指定线宽。',
   "For custom tuple data, specify fill in the artwork. Inline rendering can supply a missing fill from the prop, but generated symbols bake missing root fills as none; the root SVG fill prop cannot override that explicit value.":
     "自定义元组数据应在图形中显式指定 fill。内联渲染可通过属性补充缺失的填充，而生成 symbol 时会将缺失的根级填充固定为 none，之后无法用根 SVG 的 fill 属性覆盖。",
 }

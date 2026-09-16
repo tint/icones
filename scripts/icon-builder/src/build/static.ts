@@ -67,7 +67,7 @@ export async function buildStatic(
     .sort((a, b) => a.name.localeCompare(b.name))
   await writeFile(path.join(output, "catalog.json"), JSON.stringify(catalog))
   console.log(
-    `Static site: ${catalog.length} catalog entries${copyCollections ? " with original data/symbols" : " (artwork hosted separately)"} in ${output}/.`
+    `Static site: ${catalog.length} catalog entries${copyCollections ? " with original data/symbols" : " (original data/symbols hosted separately)"} in ${output}/.`
   )
   return { icons: catalog.length }
 }

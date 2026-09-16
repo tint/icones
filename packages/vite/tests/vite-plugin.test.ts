@@ -117,7 +117,7 @@ type Asset = { type: "asset"; fileName: string; source: string | Uint8Array }
 type Chunk = { type: "chunk"; code: string }
 type Output = { output: (Asset | Chunk)[] }
 async function bundle(
-  mode: Mode,
+  mode: Mode | undefined,
   dataDir: string,
   extra: Options = {},
   code = entry,
@@ -174,6 +174,8 @@ async function bundle(
       resolve(name: string): RuntimeIcon | undefined
       iconLoader(name: string): unknown
       render(): string
+      prefix?: string
+      count?: number
     },
     js,
     runtimeRequests,
@@ -182,7 +184,7 @@ async function bundle(
 }
 
 describe("static collection and JSON sources", () => {
-  for (const mode of ["svg", "symbol"] as const) {
+  for (const mode of ["svg", "symbol", "sprite"] as const) {
     for (const emitData of [true, "used", false] as const) {
       test(`package fallback is read-only and emits only collected icons (${mode}, ${emitData})`, async () => {
         const parent = await temporaryData()
@@ -252,12 +254,14 @@ describe("static collection and JSON sources", () => {
         } else {
           expect(
             assets.filter((asset) => asset.fileName.endsWith(".svg"))
-          ).toHaveLength(4)
+          ).toHaveLength(mode === "sprite" ? 1 : 4)
           expect(runtime.resolve("circle-flags:us")?.viewBox).toBe(
             "0 0 512 512"
           )
           expect(runtime.resolve("hugeicons:search-01")?.href).toContain(
-            "/huge/symbols/search-01-"
+            mode === "sprite"
+              ? "/icons/sprite.svg#"
+              : "/huge/symbols/search-01-"
           )
         }
         expect(runtime.resolve("tabler:heart")).toBeUndefined()
@@ -405,9 +409,9 @@ describe("static collection and JSON sources", () => {
     const dataDir = path.join(await temporaryData(), "absent")
     const outDir = await temporaryData()
     const { assets } = await bundle(
-      "symbol",
+      "sprite",
       dataDir,
-      { emitData: "used" },
+      { emitData: "used", spriteGroupBy: "set" },
       staticEntry("tabler:star"),
       { outDir, base: "/preview/" }
     )
@@ -417,7 +421,13 @@ describe("static collection and JSON sources", () => {
       logLevel: "silent",
       base: "/preview/",
       build: { outDir },
-      plugins: [icones({ dataDir, fallbackToApi: false })],
+      plugins: [
+        icones({
+          dataDir,
+          spriteGroupBy: "set",
+          fallbackToApi: false,
+        }),
+      ],
       preview: { host: "127.0.0.1", port: 0 },
     })
     try {
@@ -756,7 +766,175 @@ describe("static collection and JSON sources", () => {
     expect(runtime.render()).toContain("<use")
     expect(await readdir(dataDir + "/fixture/data")).toContain("heart.json")
   })
-  for (const mode of ["svg", "symbol"] as const) {
+  test("defaults to one combined sprite for all collected icons", async () => {
+    const dataDir = await temporaryData()
+    const { assets, runtime } = await bundle(undefined, dataDir, {
+      emitData: false,
+    })
+    const svg = assets.filter((asset) => asset.fileName.endsWith(".svg"))
+    expect(svg).toHaveLength(1)
+    expect(svg[0]!.fileName).toBe("icons/sprite.svg")
+    expect(String(svg[0]!.source).match(/<symbol /g)).toHaveLength(5)
+    const hrefs = [
+      "fixture:refresh",
+      "fixture:reload",
+      "fixture:wide",
+      "custom:logo",
+      "fixture:heart",
+    ].map((name) => runtime.resolve(name)!.href!)
+    expect(new Set(hrefs.map((href) => href.split("#")[0]))).toEqual(
+      new Set(["/preview/icons/sprite.svg"])
+    )
+    for (const href of hrefs)
+      expect(String(svg[0]!.source)).toContain(`id="${href.split("#")[1]}"`)
+  })
+  test("groups sprites by icon set when configured", async () => {
+    const dataDir = await temporaryData()
+    const { assets, runtime } = await bundle(undefined, dataDir, {
+      emitData: false,
+      spriteGroupBy: "set",
+    })
+    const sprites = assets.filter((asset) => asset.fileName.endsWith(".svg"))
+    expect(sprites.map(({ fileName }) => fileName).toSorted()).toEqual([
+      "icons/custom/sprite.svg",
+      "icons/fixture/sprite.svg",
+    ])
+    expect(runtime.resolve("custom:logo")?.href).toStartWith(
+      "/preview/icons/custom/sprite.svg#"
+    )
+    for (const name of [
+      "fixture:refresh",
+      "fixture:reload",
+      "fixture:wide",
+      "fixture:heart",
+    ])
+      expect(runtime.resolve(name)?.href).toStartWith(
+        "/preview/icons/fixture/sprite.svg#"
+      )
+    expect(
+      String(
+        sprites.find(({ fileName }) => fileName.includes("/custom/"))!.source
+      ).match(/<symbol /g)
+    ).toHaveLength(1)
+    expect(
+      String(
+        sprites.find(({ fileName }) => fileName.includes("/fixture/"))!.source
+      ).match(/<symbol /g)
+    ).toHaveLength(4)
+  })
+  test("a virtual set module registers the complete collection in one lazy entry", async () => {
+    const dataDir = await temporaryData()
+    const code = [
+      'import { resolve } from "@icones/core/runtime";',
+      'import { prefix, count } from "virtual:icones/set/fixture";',
+      "globalThis.testIcons = { resolve, prefix, count, render: () => '' };",
+    ].join("\n")
+    const { assets, runtime } = await bundle(
+      "sprite",
+      dataDir,
+      {
+        emitData: false,
+        spriteGroupBy: "set",
+      },
+      code
+    )
+    expect(runtime.prefix).toBe("fixture")
+    expect(runtime.count).toBe(6)
+    for (const name of [
+      "fixture:heart",
+      "fixture:heart-filled",
+      "fixture:refresh",
+      "fixture:reload",
+      "fixture:unused",
+      "fixture:wide",
+    ])
+      expect(runtime.resolve(name)?.href).toStartWith(
+        "/preview/icons/fixture/sprite.svg#"
+      )
+    const sprites = assets.filter((asset) => asset.fileName.endsWith(".svg"))
+    expect(sprites).toHaveLength(1)
+    expect(sprites[0]!.fileName).toBe("icons/fixture/sprite.svg")
+    expect(String(sprites[0]!.source).match(/<symbol /g)).toHaveLength(6)
+  })
+  test("chunks an oversized sprite and registers every icon against its chunk", async () => {
+    const dataDir = await temporaryData()
+    const { assets, runtime } = await bundle(undefined, dataDir, {
+      emitData: false,
+      spriteMaxBytes: 1,
+    })
+    const sprites = assets.filter((asset) => asset.fileName.endsWith(".svg"))
+    expect(sprites.map(({ fileName }) => fileName)).toEqual([
+      "icons/sprite-1.svg",
+      "icons/sprite-2.svg",
+      "icons/sprite-3.svg",
+      "icons/sprite-4.svg",
+      "icons/sprite-5.svg",
+    ])
+    expect(
+      sprites.every(
+        ({ source }) => String(source).match(/<symbol /g)?.length === 1
+      )
+    ).toBe(true)
+    const names = [
+      "fixture:refresh",
+      "fixture:reload",
+      "fixture:wide",
+      "custom:logo",
+      "fixture:heart",
+    ]
+    const hrefs = names.map((name) => runtime.resolve(name)!.href!)
+    expect(new Set(hrefs.map((href) => href.split("#")[0])).size).toBe(5)
+    for (const href of hrefs) {
+      const [pathname, id] = href.split("#")
+      const sprite = sprites.find(
+        ({ fileName }) => "/preview/" + fileName === pathname
+      )
+      expect(sprite).toBeDefined()
+      expect(String(sprite!.source)).toContain(`id="${id}"`)
+    }
+  })
+  test("applies the byte limit independently within each set", async () => {
+    const dataDir = await temporaryData()
+    const { assets, runtime } = await bundle(undefined, dataDir, {
+      emitData: false,
+      spriteGroupBy: "set",
+      spriteMaxBytes: 1,
+    })
+    const sprites = assets.filter((asset) => asset.fileName.endsWith(".svg"))
+    expect(sprites.map(({ fileName }) => fileName).toSorted()).toEqual([
+      "icons/custom/sprite.svg",
+      "icons/fixture/sprite-1.svg",
+      "icons/fixture/sprite-2.svg",
+      "icons/fixture/sprite-3.svg",
+      "icons/fixture/sprite-4.svg",
+    ])
+    expect(runtime.resolve("custom:logo")?.href).toStartWith(
+      "/preview/icons/custom/sprite.svg#"
+    )
+    expect(
+      new Set(
+        [
+          "fixture:refresh",
+          "fixture:reload",
+          "fixture:wide",
+          "fixture:heart",
+        ].map((name) => runtime.resolve(name)!.href!.split("#")[0])
+      ).size
+    ).toBe(4)
+  })
+  test("validates the sprite chunk limit", () => {
+    for (const spriteMaxBytes of [0, -1, 1.5, Number.MAX_SAFE_INTEGER + 1])
+      expect(() => icones({ spriteMaxBytes })).toThrow(
+        "spriteMaxBytes must be a positive safe integer or false."
+      )
+    expect(() => icones({ spriteMaxBytes: false })).not.toThrow()
+  })
+  test("validates the sprite grouping option", () => {
+    expect(() => icones({ spriteGroupBy: "prefix" as never })).toThrow(
+      'spriteGroupBy must be "all" or "set".'
+    )
+  })
+  for (const mode of ["svg", "symbol", "sprite"] as const) {
     test(
       mode +
         " collects only literal references and preserves sizing, aliases, dimensions",
@@ -808,7 +986,9 @@ describe("static collection and JSON sources", () => {
           expect(markup).toContain("<use")
           expect(js).not.toContain(circle.body)
           expect(refresh.href).toStartWith(
-            "/preview/icons/fixture/symbols/refresh-"
+            mode === "sprite"
+              ? "/preview/icons/sprite.svg#"
+              : "/preview/icons/fixture/symbols/refresh-"
           )
           const [pathname, id] = refresh.href!.split("#")
           const sprite = assets.find(
@@ -827,7 +1007,7 @@ describe("static collection and JSON sources", () => {
     )
   }
 
-  for (const mode of ["svg", "symbol"] as const) {
+  for (const mode of ["svg", "symbol", "sprite"] as const) {
     test(`${mode} collects a filled name independently without loading its outline`, async () => {
       const dataDir = await temporaryData()
       const { runtime, assets } = await bundle(
@@ -853,7 +1033,9 @@ describe("static collection and JSON sources", () => {
         expect(result.data).toEqual(iconToElementData(filled))
         expect(runtime.render()).toContain("M2 10h20v4H2z")
       } else {
-        expect(result.href).toContain("heart-filled-")
+        expect(result.href).toContain(
+          mode === "sprite" ? "/icons/sprite.svg#" : "heart-filled-"
+        )
         expect(runtime.render()).toContain(result.href!)
       }
     })
@@ -909,9 +1091,9 @@ describe("static collection and JSON sources", () => {
     }
   })
 
-  test("uses assetsDir for both JSON output and sprite URLs", async () => {
+  test("uses assetsDir for both JSON output and the combined sprite URL", async () => {
     const dataDir = await temporaryData()
-    const { runtime, assets } = await bundle("symbol", dataDir, {
+    const { runtime, assets } = await bundle("sprite", dataDir, {
       assetsDir: "assets/glyphs",
     })
     expect(assets.length).toBeGreaterThan(0)
@@ -924,8 +1106,11 @@ describe("static collection and JSON sources", () => {
       )
     ).toBe(true)
     expect(runtime.resolve("fixture:refresh")?.href).toStartWith(
-      "/preview/assets/glyphs/fixture/symbols/refresh-"
+      "/preview/assets/glyphs/sprite.svg#"
     )
+    expect(
+      assets.filter((asset) => asset.fileName.endsWith(".svg"))
+    ).toHaveLength(1)
   })
 
   test("builds again from saved JSON without an icon-set package or API", async () => {
@@ -967,7 +1152,7 @@ describe("static collection and JSON sources", () => {
     ).toContain("scale(-1 1)")
   })
 
-  test("serves collected sprites and set/category JSON under the Vite base", async () => {
+  test("serves the collected sprite and set/category JSON under the Vite base", async () => {
     const dataDir = await temporaryData()
     const server = await createServer({
       root: import.meta.dir + "/../../..",
@@ -978,7 +1163,8 @@ describe("static collection and JSON sources", () => {
       base: "/preview/",
       plugins: [
         icones({
-          mode: "symbol",
+          mode: "sprite",
+          spriteGroupBy: "set",
           dataDir,
           iconSets: [set],
           fallbackToApi: false,
@@ -993,6 +1179,7 @@ describe("static collection and JSON sources", () => {
       const address = server.httpServer!.address() as { port: number }
       const base = "http://127.0.0.1:" + address.port
       const resolved = module.resolve("fixture:refresh") as RuntimeIcon
+      expect(resolved.href).toStartWith("/preview/icons/fixture/sprite.svg#")
       const response = await fetch(base + resolved.href!.split("#")[0])
       expect(response.status).toBe(200)
       expect(await response.text()).toContain("<symbol")
@@ -1118,10 +1305,9 @@ describe("static collection and JSON sources", () => {
     try {
       await server.ssrLoadModule("virtual:icones/icon/tabler:star")
       const runtime = await server.ssrLoadModule("virtual:icones")
-      const expected = JSON.parse(
-        await readFile(root + "/icons/tabler/data/star.json", "utf8")
+      expect(runtime.resolve("tabler:star")?.href).toStartWith(
+        "/icons/sprite.svg#"
       )
-      expect(runtime.resolve("tabler:star")?.data).toEqual(expected)
       expect(runtime.resolve("tabler:star-filled")).toBeUndefined()
     } finally {
       await server.close()
@@ -1138,7 +1324,7 @@ describe("static collection and JSON sources", () => {
       logLevel: "silent",
       plugins: [
         icones({
-          mode: "symbol",
+          mode: "sprite",
           dataDir,
           iconSets: [set],
           icons: { "custom:logo": circle },
@@ -1154,7 +1340,7 @@ describe("static collection and JSON sources", () => {
       const module = await server.ssrLoadModule(entryId)
       const html = module.testIcons.render() as string
       expect(html.match(/data-state="loaded"/g)).toHaveLength(4)
-      expect(html).toContain("/icons/fixture/symbols/refresh-")
+      expect(html).toContain("/icons/sprite.svg#")
       expect(html).toContain("<use")
     } finally {
       await server.close()

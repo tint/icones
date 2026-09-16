@@ -15,6 +15,8 @@ import {
 const dataDir = fileURLToPath(new URL("../packages/icons", import.meta.url))
 export default defineConfig(({ command, mode, isPreview }) => {
   const split = command === "build" && iconDeploymentMode() === "split"
+  const collectStaticIcons =
+    command === "build" || (command === "serve" && !isPreview)
   const env = loadEnv(
     mode,
     fileURLToPath(new URL(".", import.meta.url)),
@@ -52,10 +54,12 @@ export default defineConfig(({ command, mode, isPreview }) => {
       llmsDocuments(),
       localizedAssets(),
       iconService(dataDir),
-      // Preview serves emitted files; its optional data API also reads only the build.
-      !isPreview &&
+      // Collect in dev and every build; preview only serves emitted files.
+      collectStaticIcons &&
         icones({
-          mode: "symbol",
+          mode: "sprite",
+          spriteGroupBy: "set",
+          spriteMaxBytes: 256 * 1024,
           assetsDir: "assets/icons",
           dataDir,
           emitData: false,

@@ -157,6 +157,21 @@ test("app build separates website and collection deployments, preserving public 
     "catalog.json",
     "index.html",
   ])
+  const emittedIcons = (
+    await readdir(join(client, "assets/icons"), { recursive: true })
+  ).map((file) => file.replaceAll("\\", "/"))
+  const sprites = emittedIcons.filter((file) => file.endsWith(".svg"))
+  expect(new Set(sprites.map((file) => file.split("/")[0]))).toEqual(
+    new Set(sets)
+  )
+  let symbols = 0
+  for (const file of sprites) {
+    const source = await readFile(join(client, "assets/icons", file), "utf8")
+    expect(Buffer.byteLength(source), file).toBeLessThanOrEqual(256 * 1024)
+    symbols += source.match(/<symbol /g)?.length ?? 0
+  }
+  expect(symbols).toBe(records.length)
+  expect(emittedIcons.some((file) => file.endsWith(".json"))).toBe(false)
   for (const prefix of Object.keys(deployment.excludedCollections))
     await expect(
       stat(join(temporary, "build/icons", prefix))
