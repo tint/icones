@@ -16,6 +16,7 @@
     "dev": "bun run build:packages && bun run --cwd app dev",
     "build:packages": "bun run --cwd scripts/icon-builder build && bun run --cwd packages/core build && bun run --cwd packages/mcp-server build && bun run --cwd packages/vite build && bun run --cwd packages/react build && bun run --cwd packages/vanilla build && bun run --cwd packages/vue build && bun run --cwd packages/solidjs build && bun run --cwd packages/svelte build && bun run --cwd packages/astro build",
     "build": "bun run build:packages && bun run --cwd app build",
+    "build:all": "bun run build && bun run --cwd scripts/package-builder build",
     "build:local": "ICONES_ICON_DEPLOYMENT=local bun run build",
     "build:icons": "bun run --cwd scripts/icon-builder build:icons",
     "build:release": "bun run build:packages && bun run --cwd scripts/package-builder build",
